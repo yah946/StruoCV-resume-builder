@@ -1,266 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta tags -->
     <meta charset="UTF-8" />
     <meta name="description" content="Free Web tutorials" />
     <meta name="keywords" content="Resume, Cv Builder, JavaScript" />
     <meta name="author" content="Mohamed Seh" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link href="./assets/css/output.css" rel="stylesheet" /> -->
+    <!-- Framework Tailwind (Css) -->
+    <link href="./assets/css/output.css" rel="stylesheet" />
+    <!-- JavaScript's file -->
     <script defer src="./assets/javaScript/main.js"></script>
+    <!-- Faviocon -->
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico" />
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <!-- Title -->
     <title>Struo-Cv Resume Builder</title>
   </head>
-  <body>
+  <body class="bg-[#E6E7FF] font-[Space_Grotesk] text-[#000475]">
     <!-- navBar -->
-  <header>
-      <h1>Struo-Cv</h1>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">Templates</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">About Us</a>
+    <header class="flex justify-between items-center h-[60px] bg-[#5C61FF] text-[#E6E6FF]">
+      <!-- Logo -->
+      <a href="index.html"><h1 class="font-[DM_Serif_Display] text-[#e6e600] text-3xl font-bold ml-8 hover:text-white">Struo-Cv</h1></a>
+      <nav class="mr-8 flex gap-6">
+        <a href="index.html" class="hover:text-white text-lg">Home</a>
+        <a href="#" class="hover:text-white text-lg">Templates</a>
+        <a href="#" class="hover:text-white text-lg">Privacy Policy</a>
+        <a href="#" class="hover:text-white text-lg">About Us</a>
       </nav>
-</header>
+    </header>
 <!-- Main Page -->
-    <main>
-      <h2>Build your professional resume with our Website.</h2>
-      <p>Create your very own professional resume and download it quickly.</p>
-      <button>Create Your Resume</button>
-      <div>
-        <div>
-            <img src="#" alt="img">
-            <h3>Fast Resume Creation</h3>
-            <p>Time is valuable, and our platform helps you make the most of it. With just a few clicks, you can enter your details, fill in your experience, and generate a professional resume instantly. No more spending hours formatting—your CV is ready in minutes.</p>
+    <main class="flex flex-col items-center gap-4 w-[100%] mt-14">
+      <h2 class="text-4xl text-[#000247]">Let <span class="font-bold text-[#00011A]">Your CV</span> Speak for You.</h2>
+      <p class="text-lg text-[#000475]">Design a standout resume that reflects your personality and lands you the job you deserve.</p>
+      <button id="Open_Modal" class="mt-5 border cursor-pointer py-3 px-5 rounded-lg duration-700 hover:bg-[#5C61FF] hover:text-[#E6E6FF] hover:scale-110">Create Your Resume</button>
+      <div class="flex flex-col gap-8 justify-center w-[80%]">
+        <div class="flex shadow-xl/30 mt-16 h-28 bg-[#D4D5FF] cursor-pointer hover:grayscale">
+            <img src="./assets/images/cartes/clock.svg" alt="img" class="w-[75px] h-[75px] self-center mr-4 ml-4">
+            <div>
+              <h3 class="font-bold">Fast Resume Creation</h3>
+              <p class="w-[95%]">Time is valuable, and our platform helps you make the most of it. With just a few clicks, you can enter your details, fill in your experience, and generate a professional resume instantly. No more spending hours formatting—your CV is ready in minutes.</p>
+            </div>
+          </div>
+        <div class="flex shadow-xl/30 h-28 bg-[#D4D5FF] cursor-pointer hover:grayscale">
+            <img src="./assets/images/cartes/done.svg" alt="img" class="w-[75px] h-[75px] self-center mr-4 ml-4">
+            <div>
+              <h3 class="font-bold">Zero Stress</h3>
+              <p class="w-[95%]">Include every detail that matters—from education and experience to skills, languages, and achievements—all organized neatly in one place to tell your full story.</p>
+            </div>
         </div>
-        <div>
-            <img src="#" alt="img">
-            <h3>Instant Results, Zero Stress</h3>
-            <p>Our online CV maker is designed for speed without sacrificing quality. From personal details to layout selection, every step is streamlined so you can create a polished resume quickly and efficiently. Get your professional CV in record time.</p>
-        </div>
-        <div>
-            <img src="#" alt="img">
-            <h3>Swift, Smart, and Simple</h3>
-            <p>Why wait? Our tool combines speed with intelligence. Auto-formatting, ready-made templates, and intuitive guidance let you build a professional resume faster than ever. Focus on your skills and experience while we handle the design and structure.</p>
+        <div class="flex shadow-xl/30 h-28 bg-[#D4D5FF] cursor-pointer hover:grayscale">
+            <img src="./assets/images/cartes/cursor.svg" alt="img" class="w-[75px] h-[75px] self-center mr-4 ml-4">
+            <div>
+              <h3 class="font-bold">Swift, Smart, and Simple</h3>
+              <p class="w-[95%]">Why wait? No design skills needed — just your information and a few clicks. Our sleek, user-friendly interface and ready-made templates make building your CV effortless. Customize every section, adjust the layout instantly, and see your professional resume come together beautifully — even if it’s your first time.</p>
+            </div>
         </div>
       </div>
     </main>
-    <!-- <div><i class="fa fa-coffee" aria-hidden="true"></i></div> -->
-     <!-- Resume Information -->
-    <div>
-        <div form1>
-            <div block>
-                <!-- Add photo -->
-                <div>
-                <input type="file" id="imageUpload" accept="image/*">
-                </div>
-                <div>
-                    <label for="">First name</label>
-                    <input type="text">
-                    <span></span>
-                    <label for="">Last name</label>
-                    <input type="text">
-                    <span></span>
-                </div>
-            </div>
-            <div block>
-              <div>
-                <label for="">Day</label>
-                <input type="text">
-                <span></span>
-                <label for="">Month</label>
-                <input type="text">
-                <span></span>
-                <label for="">Years</label>
-                <input type="text" name="" id="">
-                <span></span>
-                <label for="">Place of birth</label>
-                <input type="text">
-                <span></span>
-              </div>
-            </div>
-            <div block>
-                <div>
-                    <label for="">Nationality</label>
-                    <input type="text">
-                    <span></span>
-                    <label for="">Family Status</label>
-                    <select id="" name="Family Status">
-                      <optgroup label="Family Status">
-                        <option value="single"></option>
-                        <option value="single">single</option>
-                        <option value="married">married</option>
-                        <option value="divorced">divorced</option>
-                        <option value="widowed">widowed</option>
-                      </optgroup>
-                    </select>
-                </div>
-            </div>
-            <div block>
-              <label for="">City/Town</label>
-              <input type="text">
-              <span></span>
-            </div>
-            <div block>
-              <h3>Gender</h3>
-              <input type="radio">
-              <label for="">Male</label>
-              <input type="radio">
-              <label for="">Female</label>
-            </div>
-        </div>
-        <div form2>
-          <div block>
-            <label for="">Email</label>
-            <input type="text">
-            <span></span>
-            <label for="">Phone number</label>
-            <input type="text">
-            <span></span>
-          </div>
-          <div block>
-            <label for="">Linkedln</label>
-            <input type="text">
-            <label for="">Github</label>
-            <input type="text">
-            <div>
-              <button>+</button>
-            </div>
-          </div>
-        </div>
-        <div form3>
-        </div>
-        <div form4>
-          <div professional experience>
-            <div>
-              <label for="">Title</label>
-              <input type="text">
-              <span></span>
-              <label for="">Date</label>
-              <input type="text">
-              <span></span>
-              <label for="">Poste</label>
-              <input type="text">
-              <span></span>
-            </div>
-            <textarea name="" id=""></textarea>
-            <div>
-                <button>+</button>
-            </div>
-        </div>
-        <div Completed Projects>
-            <div>
-              <label for="">Title</label>
-              <input type="text">
-              <span></span>
-              <label for="">Date</label>
-              <input type="text">
-              <span></span>
-            </div>
-            <textarea name="" id=""></textarea>
-            <div>
-                <button>+</button>
-            </div>
-        </div>
-        </div>
-        <div form5>
-          <div EductaionFormation>
-            <label for="">Company</label>
-            <input type="text">
-            <span></span>
-            <label for="">city</label>
-            <input type="text">
-            <span></span>
-            <label for="">date</label>
-            <input type="text">
-            <span></span>
-            <button>+</button>
-          </div>
-          <div Certifications>
-            <label for="">Cert</label>
-            <input type="text">
-            <span></span>
-            <label for="">mooda</label>
-            <input type="text">
-            <span></span>
-            <label for="">date</label>
-            <input type="text">
-            <span></span>
-            <button>+</button>
-          </div>
-        </div>
-        <div Commpetences Tranversales>
-          <div>
-            <label for=""></label>
-            <input type="text">
-          </div>
-          <div>
-            <label for=""></label>
-            <input type="text">
-          </div>
-          <div>
-            <label for="">langues</label>
-            <input type="text">
-            <label for="">level</label>
-            <input type="text">
-            <button>+</button>
-          </div>
-        </div>
-        <div>
-          <h3>Select Template</h3>
-          <div>
-            <div>
-              <img src="./assets/images/templates/cv1.jpg" alt="cv1">
-              <input type="radio" name="" id="">
-            </div>
-            <div>
-              <img src="./assets/images/templates/cv2.jpg" alt="cv2">
-              <input type="radio" name="" id="">
-            </div>
-          </div>
-        </div>
-    </div>
-    <!-- footer -->
-     <footer>
-        <div>
-            <h2>Struo-Cv</h2>
+     <!-- footer -->
+     <footer class="bg-[#5C61FF] text-[#E6E6FF] mt-32">
+      <div class="flex">
+        <div class="w-[30%] ml-8">
+            <a href="index.html"><h2 class="font-[DM_Serif_Display] text-[#e6e600] text-3xl font-bold hover:text-white mb-4">Struo-Cv</h2></a>
             <p>This project is a web application that allows users to easily create a structured and personalized resume.</p>
         </div>
-        <div>
-            <h2>Connect With Us</h2>
-            <div>
-              <div>
-                <i class="fa-brands fa-x-twitter"></i>
+        <div class=" ml-8 w-[100%]">
+            <h2 class="text-lg font-bold mb-4 mt-1">Connect With Us</h2>
+            <div class="ml-4 flex gap-24">
+              <div class="flex flex-col gap-4">
+                <div class="flex px-5 py-1 shadow-xl/20 bg-[#5154FF] rounded-md cursor-pointer hover:bg-[#D4D5FF] hover:text-[#00039F] w-[300px]">
+                <i class="fa-brands fa-x-twitter self-center mr-4 ml-4"></i>
                 <div>
-                  <p>X / Twitter</p>
-                  <p>@Simon11102</p>
+                  <a href="https://x.com/simon11102" target="_blank"><p>X / Twitter</p></a>
+                  <a href="https://x.com/simon11102" target="_blank"><p class="text-[14px]">@Simon11102</p></a>
                 </div>
               </div>
-              <div>
-                <i class="fa-brands fa-telegram"></i>
+              <div class="flex px-5 py-1 shadow-xl/20 bg-[#5154FF] rounded-md cursor-pointer hover:bg-[#D4D5FF] hover:text-[#00039F] w-[300px]">
+                <i class="fa-brands fa-telegram self-center mr-4 ml-4"></i>
                 <div>
-                  <p>Telegrame</p>
-                  <p>@Nino875</p>
+                  <a href="#" target="_blank"><p>Telegrame</p></a>
+                  <a href="#" target="_blank"><p class="text-[14px]">@Nino875</p></a>
+                </div>
+              </div></div>
+              <div class="ml flex flex-col gap-4">
+                <div class="flex px-5 py-1 shadow-xl/20 bg-[#5154FF] rounded-md cursor-pointer hover:bg-[#D4D5FF] hover:text-[#00039F] w-[300px]">
+                <i class="fa fa-coffee self-center mr-4 ml-4" aria-hidden="true"></i>
+                <div>
+                  <a href="#"><p>Buy Me a Coffee</p></a>
+                  <a href="#"><p class="text-[14px]">One-time support</p></a>
                 </div>
               </div>
-              <div>
-                <i class="fa fa-coffee" aria-hidden="true"></i>
+              <div class="flex px-5 py-1 shadow-xl/20 bg-[#5154FF] rounded-md cursor-pointer hover:bg-[#D4D5FF] hover:text-[#00039F] w-[300px]">
+                <i class="fa-regular fa-envelope self-center mr-4 ml-4"></i>
                 <div>
-                  <p>Buy Me a Coffee</p>
-                  <p>One-time support</p>
+                  <a href="mailto:someone@example.com"><p>Email Us</p></a>
+                  <a href="mailto:someone@example.com"><p class="text-[14px]">mohamedseharne314@gamil.com</p></a>
                 </div>
-              </div>
-              <div>
-                <i class="fa-regular fa-envelope"></i>
-                <div>
-                  <p>Email Us</p>
-                  <p>mohamedseharne314@gamil.com</p>
-                </div>
-              </div>
+              </div></div>
             </div>
         </div>
-        <div>
+      </div>
+        <div class="mt-8 text-center">
             &copy; 2025 Struo-Cv. All rights reserved.
         </div>
     </footer>
