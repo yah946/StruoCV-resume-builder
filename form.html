@@ -14,19 +14,38 @@
     <!-- Faviocon -->
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico" />
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
     <!-- Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Quilljs -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css"
+      rel="stylesheet"
+    />
     <!-- Title -->
     <title>Struo-Cv Resume Builder</title>
   </head>
   <body class="bg-[#E6E7FF] font-[Space_Grotesk] text-[#000475]">
     <!-- navBar -->
-    <header class="flex justify-between items-center h-[60px] bg-[#5C61FF] text-[#E6E6FF]">
+    <header
+      class="flex justify-between items-center h-[60px] bg-[#5C61FF] text-[#E6E6FF]"
+    >
       <!-- Logo -->
-      <a href="index.html"><h1 class="font-[DM_Serif_Display] text-[#e6e600] text-3xl font-bold ml-8 hover:text-white">Struo-Cv</h1></a>
+      <a href="index.html"
+        ><h1
+          class="font-[DM_Serif_Display] text-[#e6e600] text-3xl font-bold ml-8 hover:text-white"
+        >
+          Struo-Cv
+        </h1></a
+      >
       <nav class="mr-8 flex gap-6">
         <a href="index.html" class="hover:text-white text-lg">Home</a>
         <a href="#" class="hover:text-white text-lg">Templates</a>
@@ -34,8 +53,10 @@
         <a href="#" class="hover:text-white text-lg">About Us</a>
       </nav>
     </header>
-<!-- Resume Information -->
-    <div class="shadow-md hover:bg-[#F0F0FF] hover:shadow-xl/30 rounded-lg my-14 mx-32 py-5 px-12">
+    <!-- Resume Information -->
+    <div
+      class="shadow-md hover:bg-[#F0F0FF] hover:shadow-xl/30 rounded-lg my-14 mx-32 py-5 px-12"
+    >
       <!-- Stepper bar -->
       <!-- <div>
         <ol>
@@ -48,274 +69,554 @@
           <li></li>
         </ol>
      </div> -->
-     <!-- Inputs -->
+      <!-- Inputs -->
       <!-- First Form -->
-        <div style="display:none;">
-            <div class="flex">
-                <!-- Add photo -->
-                <input style="display: none;" type="file" id="imageUpload" accept="image/*">
-                <label for="imageUpload" class="border border-3 border-dashed rounded-lg inline-block mr-8 w-36 h-36 text-center py-12 bg-[#B8B8FF] text-[#0000A3] cursor-pointer hover:bg-[#0000FF] hover:text-[#E6E6FF]">Add photo (optional)</label>
-                <div>
-                    <div>
-                        <label for="NameInput">First name</label>
-                        <input id="NameInput" type="text" name="First_name" class="border bg-[#E8F0FF] py-1 w-full">
-                        <span id="sizeError"></span>
-                    </div>
-                    <div>
-                        <label for="LastInput">Last name</label>
-                        <input id="LastInput" type="text" name="Last_name" class="border bg-[#E8F0FF] py-1 w-full">
-                        <span id="sizeError"></span>
-                    </div>
-                </div>
-            </div>
+      <div style="display: none">
+        <div class="flex">
+          <!-- Add photo -->
+          <input
+            style="display: none"
+            type="file"
+            id="imageUpload"
+            accept="image/*"
+          />
+          <label
+            for="imageUpload"
+            class="border border-3 border-dashed rounded-lg inline-block mr-8 w-36 h-36 text-center py-12 bg-[#B8B8FF] text-[#0000A3] cursor-pointer hover:bg-[#0000FF] hover:text-[#E6E6FF]"
+            >Add photo (optional)</label
+          >
+          <div>
             <div>
-              <div class="mt-8 flex gap-2 items-center">
-                <label for="DayInput">Day</label>
-                <input id="DayInput" type="number" name="Day" class="border bg-[#E8F0FF] py-1 w-[6%]">
-                <span id="dayError"></span>
-                <label for="monthInput">Month</label>
-                <input id="monthInput" type="number" name="Month" class="border bg-[#E8F0FF] py-1 w-[6%]">
-                <span id="monthError"></span>
-                <label for="yearInput">Year</label>
-                <input id="yearInput" type="number" name="Year" class="border bg-[#E8F0FF] py-1 w-[12%]">
-                <span id="yearError"></span>
-                <label for="BirthPlaceInput">Place of birth</label>
-                <input id="BirthPlaceInput" type="text" name="Birth_place" class="border bg-[#E8F0FF] py-1 w-[45%]">
-                <span id="sizeError"></span>
-              </div>
-            </div>
-            <div>
-                <div class="mt-8">
-                    <label for="NationalityInput">Nationality</label>
-                    <input id="NationalityInput" type="text" name="Nationality" class="border bg-[#E8F0FF] py-1 w-[60%]">
-                    <span id="sizeError"></span>
-                    <label for="statusInput">Family Status</label>
-                    <select id="statusInput" name="Family Status" class="border bg-[#E8F0FF] py-1 w-[20%]">
-                      <optgroup label="Family Status">
-                        <option value="single"></option>
-                        <option value="single">single</option>
-                        <option value="married">married</option>
-                        <option value="divorced">divorced</option>
-                        <option value="widowed">widowed</option>
-                      </optgroup>
-                    </select>
-                </div>
-            </div>
-            <div class="mt-4">
-              <label for="cityInput">City/Town</label>
-              <input id="cityInput" type="text" name="city" class="border bg-[#E8F0FF] py-1 w-full">
+              <label for="NameInput">First name</label>
+              <input
+                id="NameInput"
+                type="text"
+                name="First_name"
+                class="border bg-[#E8F0FF] py-1 w-full"
+              />
               <span id="sizeError"></span>
             </div>
-            <div class="mt-4">
-              <h3>Gender</h3>
-                <div>
-                  <input id="GenderInputM" type="radio" name="gender">
-                  <label for="GenderInputM">Male</label>
-                </div>
-                <div>
-                  <input id="GenderInputF" type="radio" name="gender">
-                  <label for="GenderInputF">Female</label>
-                </div>
+            <div>
+              <label for="LastInput">Last name</label>
+              <input
+                id="LastInput"
+                type="text"
+                name="Last_name"
+                class="border bg-[#E8F0FF] py-1 w-full"
+              />
+              <span id="sizeError"></span>
             </div>
-        </div>
-        <!-- Second Form -->
-        <div style="display: none;">
-          <div class="flex gap-4 items-center">
-            <label for="emailInput">Email</label>
-            <input id="emailInput" type="email" name="email" class="border bg-[#E8F0FF] py-1 w-72">
-            <span id="emailError"></span>
-            <label for="phoneInput">Phone number</label>
-            <input id="phoneInput" type="text" name="phone" class="border bg-[#E8F0FF] py-1 w-72">
-            <span id="phoneError"></span>
           </div>
-          <div class="mt-4">
-            <label for="linkedlnInput">Linkedln</label>
-            <input id="linkedlnInput" type="text" name="linkedln" class="border bg-[#E8F0FF] py-1 w-full">
-            <span id="linkError"></span>
-            <label for="githubInput">Github</label>
-            <input id="githubInput" type="text" name="Github" class="border bg-[#E8F0FF] py-1 w-full">
-            <span id="linkError"></span>
-            <!-- More links -->
-            <!-- <label for="linkedlnInput">Linkedln</label>
+        </div>
+        <div>
+          <div class="mt-8 flex gap-2 items-center">
+            <label for="DayInput">Day</label>
+            <input
+              id="DayInput"
+              type="number"
+              name="Day"
+              class="border bg-[#E8F0FF] py-1 w-[6%]"
+            />
+            <span id="dayError"></span>
+            <label for="monthInput">Month</label>
+            <input
+              id="monthInput"
+              type="number"
+              name="Month"
+              class="border bg-[#E8F0FF] py-1 w-[6%]"
+            />
+            <span id="monthError"></span>
+            <label for="yearInput">Year</label>
+            <input
+              id="yearInput"
+              type="number"
+              name="Year"
+              class="border bg-[#E8F0FF] py-1 w-[12%]"
+            />
+            <span id="yearError"></span>
+            <label for="BirthPlaceInput">Place of birth</label>
+            <input
+              id="BirthPlaceInput"
+              type="text"
+              name="Birth_place"
+              class="border bg-[#E8F0FF] py-1 w-[45%]"
+            />
+            <span id="sizeError"></span>
+          </div>
+        </div>
+        <div>
+          <div class="mt-8">
+            <label for="NationalityInput">Nationality</label>
+            <input
+              id="NationalityInput"
+              type="text"
+              name="Nationality"
+              class="border bg-[#E8F0FF] py-1 w-[60%]"
+            />
+            <span id="sizeError"></span>
+            <label for="statusInput">Family Status</label>
+            <select
+              id="statusInput"
+              name="Family Status"
+              class="border bg-[#E8F0FF] py-1 w-[20%]"
+            >
+              <optgroup label="Family Status">
+                <option value="single"></option>
+                <option value="single">single</option>
+                <option value="married">married</option>
+                <option value="divorced">divorced</option>
+                <option value="widowed">widowed</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+        <div class="mt-4">
+          <label for="cityInput">City/Town</label>
+          <input
+            id="cityInput"
+            type="text"
+            name="city"
+            class="border bg-[#E8F0FF] py-1 w-full"
+          />
+          <span id="sizeError"></span>
+        </div>
+        <div class="mt-4">
+          <h3>Gender</h3>
+          <div>
+            <input id="GenderInputM" type="radio" name="gender" />
+            <label for="GenderInputM">Male</label>
+          </div>
+          <div>
+            <input id="GenderInputF" type="radio" name="gender" />
+            <label for="GenderInputF">Female</label>
+          </div>
+        </div>
+      </div>
+      <!-- Second Form -->
+      <div style="display: none">
+        <div class="flex gap-4 items-center">
+          <label for="emailInput">Email</label>
+          <input
+            id="emailInput"
+            type="email"
+            name="email"
+            class="border bg-[#E8F0FF] py-1 w-72"
+          />
+          <span id="emailError"></span>
+          <label for="phoneInput">Phone number</label>
+          <input
+            id="phoneInput"
+            type="text"
+            name="phone"
+            class="border bg-[#E8F0FF] py-1 w-72"
+          />
+          <span id="phoneError"></span>
+        </div>
+        <div class="mt-4">
+          <label for="linkedlnInput">Linkedln</label>
+          <input
+            id="linkedlnInput"
+            type="text"
+            name="linkedln"
+            class="border bg-[#E8F0FF] py-1 w-full"
+          />
+          <span id="linkError"></span>
+          <label for="githubInput">Github</label>
+          <input
+            id="githubInput"
+            type="text"
+            name="Github"
+            class="border bg-[#E8F0FF] py-1 w-full"
+          />
+          <span id="linkError"></span>
+          <!-- More links -->
+          <!-- <label for="linkedlnInput">Linkedln</label>
             <input id="linkedlnInput" type="text" name="linkedln" class="border bg-[#E8F0FF] py-1 w-full">
             <span id="sizeError"></span>
             <label for="githubInput">Github</label>
             <input id="githubInput" type="text" name="Github" class="border bg-[#E8F0FF] py-1 w-full">
             <span id="linkError"></span> -->
+        </div>
+        <div class="flex justify-center">
+          <button
+            id="addButtonLinks"
+            class="mt-8 mb-8 py-1 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center"
+          >
+            +
+          </button>
+        </div>
+      </div>
+      <!-- Third Form -->
+      <div>
+        <h3 class="mb-4">Description</h3>
+        <div class="bg-[#E8F0FF]" id="editor">
+          <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+          <script>
+            const quill = new Quill("#editor", {
+              theme: "snow",
+            });
+          </script>
+        </div>
+        <h3 class="mt-4 mb-4">Technical Skills</h3>
+        <div class="flex flex-col gap-2">
+          <input id="techLangInput" type="text" name="technical_languages" placeholder="Languages" class="border bg-[#E8F0FF] py-1 w-full">
+          <input id="techFrWInput" type="text" name="technical_frameworks" placeholder="Frameworks" class="border bg-[#E8F0FF] py-1 w-full">
+          <input id="techDBInput" type="text" name="technical_databases" placeholder="DataBases" class="border bg-[#E8F0FF] py-1 w-full">
+          <input id="techToolsInput" type="text" name="technical_tools" placeholder="Tools" class="border bg-[#E8F0FF] py-1 w-full">
+          <input id="MethInput" type="text" name="Mhethodologies" placeholder="Methodologies" class="border bg-[#E8F0FF] py-1 w-full">
+        </div>
+      </div>
+      <!-- Form 4 -->
+      <div style="display: none">
+        <h2 class="font-bold mb-8">Professional Experience</h2>
+        <div>
+          <div class="flex items-center gap-16">
+            <div>
+              <label for="exTitleInput">Title</label>
+              <input
+                id="exTitleInput"
+                type="text"
+                name="Professional_Experience"
+                class="border py-1 bg-[#E8F0FF] w-56"
+              />
+              <span id="sizeError"></span>
+            </div>
+            <!-- Date Form: XXXX-XXXX -->
+            <div>
+              <label for="exDateInput">Date</label>
+              <input
+                id="exDateInput"
+                type="text"
+                name="DateOfProfessionalExperience"
+                class="border py-1 bg-[#E8F0FF] w-56"
+              />
+              <span id="dateError"></span>
+            </div>
+            <div>
+              <label for="exPosteInput">Poste</label>
+              <input
+                id="exPosteInput"
+                type="text"
+                name="PosteOfProfessionalExperience"
+                class="border py-1 bg-[#E8F0FF] w-56"
+              />
+              <span id="dateError"></span>
+            </div>
+          </div>
+          <div class="mt-4">
+            <label for="mission">Main Missions</label>
+            <textarea
+              name="mission"
+              id="mission"
+              class="border w-full h-16 block"
+            ></textarea>
+            <span id="textAreaError"></span>
           </div>
           <div class="flex justify-center">
-              <button id="addButtonLinks" class=" mt-8 mb-8 py-1 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center">+</button>
+            <button
+              id="addButtonEX"
+              class="mt-8 mb-8 py-1 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center"
+            >
+              +
+            </button>
           </div>
         </div>
-        <!-- Third Form -->
+        <h2 class="font-bold mb-8">Completed Projects</h2>
         <div>
-          
-        </div>
-        <!-- Form 4 -->
-        <div>
-          <h2 class="font-bold mb-8">Professional Experience</h2>
-          <div>
-            <div class="flex items-center gap-16">
-              <div>                  
-                <label for="exTitleInput">Title</label>
-                <input id="exTitleInput" type="text"  name="Professional_Experience" class="border py-1 bg-[#E8F0FF] w-56">
-                <span id="sizeError"></span>
-              </div>
-              <!-- Date Form: XXXX-XXXX -->
-              <div>              
-                <label for="exDateInput">Date</label>
-                <input id="exDateInput" type="text" name="DateOfProfessionalExperience" class="border py-1 bg-[#E8F0FF] w-56">
-                <span id="dateError"></span>
-              </div>
-              <div>            
-                <label for="exPosteInput">Poste</label>
-                <input id="exPosteInput" type="text" name="PosteOfProfessionalExperience" class="border py-1 bg-[#E8F0FF] w-56">
-                <span id="dateError"></span>
-              </div>
+          <div class="flex items-center gap-16">
+            <div>
+              <label for="proTitleInput">Title</label>
+              <input
+                id="proTitleInput"
+                type="text"
+                name="Completed_Project"
+                class="border py-1 bg-[#E8F0FF] w-56"
+              />
+              <span id="sizeError"></span>
             </div>
-            <div class="mt-4">
-              <label for="mission">Main Missions</label>
-              <textarea name="mission" id="mission" class="border w-full h-16 block"></textarea>
-              <span id="textAreaError"></span>
+            <div>
+              <label for="ProDateInput">Date</label>
+              <input
+                id="ProDateInput"
+                type="text"
+                name="DateOfCompletedProject"
+                class="border py-1 bg-[#E8F0FF] w-56"
+              />
+              <span id="yearError"></span>
             </div>
-            <div class="flex justify-center">
-              <button id="addButtonEX" class=" mt-8 mb-8 py-1 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center">+</button>
           </div>
-         </div>
-         <h2 class="font-bold mb-8">Completed Projects</h2>
-        <div>
-            <div class="flex items-center gap-16">
-              <div>
-                <label for="proTitleInput">Title</label>
-                <input id="proTitleInput" type="text" name="Completed_Project" class="border py-1 bg-[#E8F0FF] w-56">
-                <span id="sizeError"></span>
-              </div>
-              <div>
-                <label for="ProDateInput">Date</label>
-                <input id="ProDateInput" type="text" name="DateOfCompletedProject" class="border py-1 bg-[#E8F0FF] w-56">
-                <span id="yearError"></span>
-              </div>
-            </div>
-            <div class="mt-4">
+          <div class="mt-4">
             <label for="descriptionOfProject">Description</label>
-            <textarea name="descriptionOfProject" id="descriptionOfProject" class="border w-full h-16 block"></textarea>
+            <textarea
+              name="descriptionOfProject"
+              id="descriptionOfProject"
+              class="border w-full h-16 block"
+            ></textarea>
             <span id="textAreaError"></span>
-            </div>
-            <div class="flex justify-center">
-              <button id="addButtonProject" class=" mt-8 mb-8 py-1 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center">+</button>
           </div>
-         </div>
-        </div>
-        <!--<div form5>
-          <div EductaionFormation>
-            <label for="">Company</label>
-            <input type="text">
-            <span></span>
-            <label for="">city</label>
-            <input type="text">
-            <span></span>
-            <label for="">date</label>
-            <input type="text">
-            <span></span>
-            <button>+</button>
-          </div>
-          <div Certifications>
-            <label for="">Cert</label>
-            <input type="text">
-            <span></span>
-            <label for="">mooda</label>
-            <input type="text">
-            <span></span>
-            <label for="">date</label>
-            <input type="text">
-            <span></span>
-            <button>+</button>
+          <div class="flex justify-center">
+            <button
+              id="addButtonProject"
+              class="mt-8 mb-8 py-1 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center"
+            >
+              +
+            </button>
           </div>
         </div>
-        <div Commpetences Tranversales>
+      </div>
+      <!-- Fifth Form -->
+      <div style="display: none">
+        <h2 class="font-bold mb-8">Eductaion/Formation</h2>
+        <div class="flex items-center gap-16">
           <div>
-            <label for=""></label>
-            <input type="text">
+            <label for="schoolInput">School</label>
+            <input
+              id="schoolInput"
+              name="School"
+              type="text"
+              class="border py-1 bg-[#E8F0FF] w-56"
+            />
+            <span id="sizeError"></span>
           </div>
           <div>
-            <label for=""></label>
-            <input type="text">
+            <label for="cityInputSch">City</label>
+            <input
+              id="cityInputSch"
+              type="text"
+              name="SchoolCity"
+              class="border py-1 bg-[#E8F0FF] w-56"
+            />
+            <span id="sizeError"></span>
+          </div>
+          <!-- XXXX-XXXX -->
+          <div>
+            <label for="schDateInput">Date</label>
+            <input
+              id="schDateInput"
+              type="text"
+              name="SchoolDate"
+              class="border py-1 bg-[#E8F0FF] w-56"
+            />
+            <span id="dateError"></span>
+          </div>
+        </div>
+        <div class="flex justify-center">
+          <button
+            id="addButtonProject"
+            class="mt-8 mb-8 py-1 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center"
+          >
+            +
+          </button>
+        </div>
+        <h2 class="font-bold mb-8">Certifications</h2>
+        <div class="flex items-center gap-16">
+          <div>
+            <label for="certInput">Certification Name</label>
+            <input
+              id="certInput"
+              type="text"
+              name="Certification"
+              class="border py-1 bg-[#E8F0FF] w-56"
+            />
+            <span id="sizeError"></span>
           </div>
           <div>
-            <label for="">langues</label>
-            <input type="text">
-            <label for="">level</label>
-            <input type="text">
-            <button>+</button>
+            <!-- an et demi/ 1.4 an / 10 ans / 4 mois / 2 mois -->
+            <label for="durationInput">Duration</label>
+            <input
+              id="durationInput"
+              type="text"
+              name="Duration"
+              class="border py-1 bg-[#E8F0FF] w-56"
+            />
+            <span id="sizeError"></span>
           </div>
+          <!-- XXXX -->
+          <div>
+            <label for="certDateInput">Date</label>
+            <input
+              id="certDateInput"
+              type="number"
+              name="certDate"
+              class="border py-1 bg-[#E8F0FF] w-56"
+            />
+            <span id="yearError"></span>
+          </div>
+        </div>
+        <div class="flex justify-center">
+          <button
+            id="addButtonProject"
+            class="mt-8 mb-8 py-1 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center"
+          >
+            +
+          </button>
+        </div>
+      </div>
+      <!-- Sixth Form -->
+      <div style="display: none">
+        <h2>Tranversales Skills</h2>
+        <div>
+          <input
+            type="text"
+            name="TranversalesSkills"
+            placeholder="Teamwork, creativity, adaptability, problem-solving..."
+            class="border bg-[#E8F0FF] py-1 w-full"
+          />
+          <span id="TranversalesSkillsError"></span>
+        </div>
+        <div class="mt-4">
+          <label for="hobbyInput">Hobbies</label>
+          <input
+            id="hobbyInput"
+            type="text"
+            name="Hobbies"
+            class="border bg-[#E8F0FF] py-1 w-full"
+          />
+        </div>
+        <div class="mt-4 flex gap-16">
+          <div>
+            <label for="langInput">Languages</label>
+            <input
+              id="langInput"
+              type="text"
+              name="langSkills"
+              class="border py-1 bg-[#E8F0FF] w-56"
+            />
+            <span id="sizeError"></span>
+          </div>
+          <div>
+            <!-- maternelle/A2/B1/c2/beginner -->
+            <label for="levelInput">level</label>
+            <input
+              id="levelInput"
+              type="text"
+              name="level"
+              class="border py-1 bg-[#E8F0FF] w-56"
+            />
+            <span id="sizeError"></span>
+          </div>
+        </div>
+        <div class="flex justify-center">
+          <button
+            id="addButtonLang"
+            class="mt-8 mb-8 py-1 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center"
+          >
+            Add Languages
+          </button>
+        </div>
+      </div>
+      <!-- Select Template Form -->
+      <div style="display: none;">
+        <h3 class="font-bold mb-8">Select Template</h3>
+        <div class="flex justify-center gap-4">
+          <div class="flex flex-col gap-4">
+            <label class="self-center" for="firstCV">Name</label>
+            <img src="./assets/images/templates/cv1.jpg" alt="cv1" />
+            <input type="radio" name="template" id="firstCV" />
+          </div>
+          <div class="flex flex-col gap-4">
+            <label class="self-center" for="SecondCv">Name</label>
+            <img src="./assets/images/templates/cv1.jpg" alt="cv2" />
+            <input type="radio" name="template" id="SecondCv" />
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-between">
+        <div>
+          <button
+            class="border rounded-lg mt-4 px-4 py-1 cursor-pointer hover:bg-[#5C61FF] hover:text-[#E6E6FF]"
+          >
+            Previous
+          </button>
         </div>
         <div>
-          <h3>Select Template</h3>
-          <div>
-            <div>
-              <img src="./assets/images/templates/cv1.jpg" alt="cv1">
-              <input type="radio" name="" id="">
-            </div>
-            <div>
-              <img src="./assets/images/templates/cv2.jpg" alt="cv2">
-              <input type="radio" name="" id="">
-            </div>
-          </div>
-        </div>-->
-        <div class="flex justify-between">
-          <div><button class="border rounded-lg mt-4 px-4 py-1 cursor-pointer hover:bg-[#5C61FF] hover:text-[#E6E6FF]">Previous</button></div>
-          <div><button class="border rounded-lg mt-4 px-4 py-1 cursor-pointer hover:bg-[#5C61FF] hover:text-[#E6E6FF]">Next</button></div>
+          <button
+            class="border rounded-lg mt-4 px-4 py-1 cursor-pointer hover:bg-[#5C61FF] hover:text-[#E6E6FF]"
+          >
+            Next
+          </button>
         </div>
+      </div>
     </div>
     <!-- Buy Me a Coffee button -->
     <!-- <div><i class="fa fa-coffee" aria-hidden="true"></i></div> -->
 
-        <!-- footer -->
-     <footer class="bg-[#5C61FF] text-[#E6E6FF] mt-32">
+    <!-- footer -->
+    <footer class="bg-[#5C61FF] text-[#E6E6FF] mt-32">
       <div class="flex">
         <div class="w-[30%] ml-8">
-            <a href="index.html"><h2 class="font-[DM_Serif_Display] text-[#e6e600] text-3xl font-bold hover:text-white mb-4">Struo-Cv</h2></a>
-            <p>This project is a web application that allows users to easily create a structured and personalized resume.</p>
+          <a href="index.html"
+            ><h2
+              class="font-[DM_Serif_Display] text-[#e6e600] text-3xl font-bold hover:text-white mb-4"
+            >
+              Struo-Cv
+            </h2></a
+          >
+          <p>
+            This project is a web application that allows users to easily create
+            a structured and personalized resume.
+          </p>
         </div>
-        <div class=" ml-8 w-[100%]">
-            <h2 class="text-lg font-bold mb-4 mt-1">Connect With Us</h2>
-            <div class="ml-4 flex gap-24">
-              <div class="flex flex-col gap-4">
-                <div class="flex px-5 py-1 shadow-xl/20 bg-[#5154FF] rounded-md cursor-pointer hover:bg-[#D4D5FF] hover:text-[#00039F] w-[300px]">
+        <div class="ml-8 w-[100%]">
+          <h2 class="text-lg font-bold mb-4 mt-1">Connect With Us</h2>
+          <div class="ml-4 flex gap-24">
+            <div class="flex flex-col gap-4">
+              <div
+                class="flex px-5 py-1 shadow-xl/20 bg-[#5154FF] rounded-md cursor-pointer hover:bg-[#D4D5FF] hover:text-[#00039F] w-[300px]"
+              >
                 <i class="fa-brands fa-x-twitter self-center mr-4 ml-4"></i>
                 <div>
-                  <a href="https://x.com/simon11102" target="_blank"><p>X / Twitter</p></a>
-                  <a href="https://x.com/simon11102" target="_blank"><p class="text-[14px]">@Simon11102</p></a>
+                  <a href="https://x.com/simon11102" target="_blank"
+                    ><p>X / Twitter</p></a
+                  >
+                  <a href="https://x.com/simon11102" target="_blank"
+                    ><p class="text-[14px]">@Simon11102</p></a
+                  >
                 </div>
               </div>
-              <div class="flex px-5 py-1 shadow-xl/20 bg-[#5154FF] rounded-md cursor-pointer hover:bg-[#D4D5FF] hover:text-[#00039F] w-[300px]">
+              <div
+                class="flex px-5 py-1 shadow-xl/20 bg-[#5154FF] rounded-md cursor-pointer hover:bg-[#D4D5FF] hover:text-[#00039F] w-[300px]"
+              >
                 <i class="fa-brands fa-telegram self-center mr-4 ml-4"></i>
                 <div>
                   <a href="#" target="_blank"><p>Telegrame</p></a>
-                  <a href="#" target="_blank"><p class="text-[14px]">@Nino875</p></a>
+                  <a href="#" target="_blank"
+                    ><p class="text-[14px]">@Nino875</p></a
+                  >
                 </div>
-              </div></div>
-              <div class="ml flex flex-col gap-4">
-                <div class="flex px-5 py-1 shadow-xl/20 bg-[#5154FF] rounded-md cursor-pointer hover:bg-[#D4D5FF] hover:text-[#00039F] w-[300px]">
-                <i class="fa fa-coffee self-center mr-4 ml-4" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="ml flex flex-col gap-4">
+              <div
+                class="flex px-5 py-1 shadow-xl/20 bg-[#5154FF] rounded-md cursor-pointer hover:bg-[#D4D5FF] hover:text-[#00039F] w-[300px]"
+              >
+                <i
+                  class="fa fa-coffee self-center mr-4 ml-4"
+                  aria-hidden="true"
+                ></i>
                 <div>
                   <a href="#"><p>Buy Me a Coffee</p></a>
                   <a href="#"><p class="text-[14px]">One-time support</p></a>
                 </div>
               </div>
-              <div class="flex px-5 py-1 shadow-xl/20 bg-[#5154FF] rounded-md cursor-pointer hover:bg-[#D4D5FF] hover:text-[#00039F] w-[300px]">
+              <div
+                class="flex px-5 py-1 shadow-xl/20 bg-[#5154FF] rounded-md cursor-pointer hover:bg-[#D4D5FF] hover:text-[#00039F] w-[300px]"
+              >
                 <i class="fa-regular fa-envelope self-center mr-4 ml-4"></i>
                 <div>
                   <a href="mailto:someone@example.com"><p>Email Us</p></a>
-                  <a href="mailto:someone@example.com"><p class="text-[14px]">mohamedseharne314@gamil.com</p></a>
+                  <a href="mailto:someone@example.com"
+                    ><p class="text-[14px]">mohamedseharne314@gamil.com</p></a
+                  >
                 </div>
-              </div></div>
+              </div>
             </div>
+          </div>
         </div>
       </div>
-        <div class="mt-8 text-center">
-            &copy; 2025 Struo-Cv. All rights reserved.
-        </div>
+      <div class="mt-8 text-center">
+        &copy; 2025 Struo-Cv. All rights reserved.
+      </div>
     </footer>
   </body>
 </html>
