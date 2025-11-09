@@ -53,25 +53,68 @@
         <a href="#" class="hover:text-white text-lg">About Us</a>
       </nav>
     </header>
+    <!-- Stepper bar -->
+     <!-- Style Css -->
+     <style>
+      .container{
+        width:960px;
+        margin: 8% auto 0 auto;
+      }
+      .steps{
+        display: flex;
+        align-items:center;
+        justify-content:space-between;
+        position: relative;
+      }
+      .circle{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:24px;
+        height:50px;
+        width:50px;
+        border:solid 3px black;
+        border-radius:50%;
+        background:#B8BAFF;
+      }
+      .active{
+        background:#A25DA2;
+        color: #dadcff;
+      }
+      .progress-bar{
+        position:absolute;
+        height:4px;
+        width:100%;
+        background:#b8baff;
+        z-index:-1;
+      }
+      .indicator{
+        height: 100%;
+        position: absolute;
+        background:#A25DA2;
+        width:0;
+      }
+     </style>
+     <!-- Structure Html -->
+    <div class="container">
+      <div id="steps" class="steps">
+        <span class="circle active"><i class="fa-solid fa-address-card"></i></span>
+        <span class="circle"><i class="fa-solid fa-at"></i></span>
+        <span class="circle"><i class="fa-solid fa-file-lines"></i></span>
+        <span class="circle"><i class="fa-solid fa-user-tie"></i></span>
+        <span class="circle"><i class="fa-solid fa-brain"></i></span>
+        <span class="circle"><i class="fa-solid fa-icons"></i></span>
+        <span class="circle"><i class="fa-solid fa-thumbs-up"></i></span>
+        <div class="progress-bar">
+          <span id="ind" class="indicator"></span>
+        </div>
+      </div>
+    </div>
     <!-- Resume Information -->
-    <div
-      class="shadow-md hover:bg-[#F0F0FF] hover:shadow-xl/30 rounded-lg my-14 mx-32 py-5 px-12"
-    >
-      <!-- Stepper bar -->
-      <!-- <div>
-        <ol>
-          <li>Personal Information</li>
-          <li>Contact Information</li>
-          <li>Experiences</li>
-          <li>Formation & Certifications</li>
-          <li>Commpetences Tranversales</li>
-          <li>Templates</li>
-          <li></li>
-        </ol>
-     </div> -->
+    <form id="form" class="shadow-md hover:bg-[#F0F0FF] hover:shadow-xl/30 rounded-lg my-14 mx-32 py-5 px-12">
       <!-- Inputs -->
       <!-- First Form -->
-      <div style="display: none">
+      <div class="form__part">
         <div class="flex">
           <!-- Add photo -->
           <input
@@ -131,7 +174,7 @@
               id="yearInput"
               type="number"
               name="Year"
-              class="border bg-[#E8F0FF] py-1 w-[12%]"
+              class="border bg-[#E8F0FF] py-1"
             />
             <span id="yearError"></span>
             <label for="BirthPlaceInput">Place of birth</label>
@@ -139,7 +182,7 @@
               id="BirthPlaceInput"
               type="text"
               name="Birth_place"
-              class="border bg-[#E8F0FF] py-1 w-[45%]"
+              class="border bg-[#E8F0FF] py-1 w-[50%]"
             />
             <span id="sizeError"></span>
           </div>
@@ -151,14 +194,14 @@
               id="NationalityInput"
               type="text"
               name="Nationality"
-              class="border bg-[#E8F0FF] py-1 w-[60%]"
+              class="border bg-[#E8F0FF] py-1 w-[70%]"
             />
             <span id="sizeError"></span>
             <label for="statusInput">Family Status</label>
             <select
               id="statusInput"
               name="Family Status"
-              class="border bg-[#E8F0FF] py-1 w-[20%]"
+              class="border bg-[#E8F0FF] py-2 w-[15%]"
             >
               <optgroup label="Family Status">
                 <option value="single"></option>
@@ -193,7 +236,7 @@
         </div>
       </div>
       <!-- Second Form -->
-      <div style="display: none">
+      <div class="form__part">
         <div class="flex gap-4 items-center">
           <label for="emailInput">Email</label>
           <input
@@ -247,7 +290,7 @@
         </div>
       </div>
       <!-- Third Form -->
-      <div>
+      <div class="form__part">
         <h3 class="mb-4">Description</h3>
         <div class="bg-[#E8F0FF]" id="editor">
           <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
@@ -267,7 +310,7 @@
         </div>
       </div>
       <!-- Form 4 -->
-      <div style="display: none">
+      <div class="form__part">
         <h2 class="font-bold mb-8">Professional Experience</h2>
         <div>
           <div class="flex items-center gap-16">
@@ -365,7 +408,7 @@
         </div>
       </div>
       <!-- Fifth Form -->
-      <div style="display: none">
+      <div class="form__part">
         <h2 class="font-bold mb-8">Eductaion/Formation</h2>
         <div class="flex items-center gap-16">
           <div>
@@ -453,7 +496,7 @@
         </div>
       </div>
       <!-- Sixth Form -->
-      <div style="display: none">
+      <div class="form__part">
         <h2>Tranversales Skills</h2>
         <div>
           <input
@@ -506,7 +549,7 @@
         </div>
       </div>
       <!-- Select Template Form -->
-      <div style="display: none;">
+      <div class="form__part"">
         <h3 class="font-bold mb-8">Select Template</h3>
         <div class="flex justify-center gap-4">
           <div class="flex flex-col gap-4">
@@ -523,24 +566,45 @@
       </div>
       <div class="flex justify-between">
         <div>
-          <button
+          <button type="submit" id="prevBtn"
             class="border rounded-lg mt-4 px-4 py-1 cursor-pointer hover:bg-[#5C61FF] hover:text-[#E6E6FF]"
           >
             Previous
           </button>
         </div>
         <div>
-          <button
+          <button type="submit" id="nextBtn"
             class="border rounded-lg mt-4 px-4 py-1 cursor-pointer hover:bg-[#5C61FF] hover:text-[#E6E6FF]"
           >
             Next
           </button>
         </div>
       </div>
+    </form>
+    <!-- Buy me a coffee button -->
+    <style>
+      .coffee{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #e6e600;
+        width: 56px;
+        height: 56px;
+        border: solid black 1.4px;
+        border-radius: 50%;
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        z-index: 10;
+      }
+      .coffeeCup{
+        width: 35px;
+        height: 50px;
+      }
+    </style>
+    <div class="coffee cursor-pointer duration-700 hover:scale-110">
+      <img src="./assets/images/coffee/coffee.svg" alt="coffee" class="coffeeCup"></img>
     </div>
-    <!-- Buy Me a Coffee button -->
-    <!-- <div><i class="fa fa-coffee" aria-hidden="true"></i></div> -->
-
     <!-- footer -->
     <footer class="bg-[#5C61FF] text-[#E6E6FF] mt-32">
       <div class="flex">
