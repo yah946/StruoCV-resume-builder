@@ -5,6 +5,26 @@
     "tailwindcss": "^4.1.16"
   },
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.16"
-  }
+    "@tailwindcss/cli": "^4.1.16",
+    "html2pdf.js": "^0.12.1"
+  },
+  "name": "struocv-resume-builder",
+  "version": "1.0.0",
+  "description": "Ce projet est une application web permettant aux utilisateurs de créer facilement un CV structuré et personnalisé. L'application utilise un **formulaire à étapes (Stepper Form)** pour guider l’utilisateur à travers toutes les sections importantes de son CV, avec des fonctionnalités de validation, de prévisualisation et de téléchargement.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yah946/StruoCV-resume-builder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/yah946/StruoCV-resume-builder/issues"
+  },
+  "homepage": "https://github.com/yah946/StruoCV-resume-builder#readme"
 }

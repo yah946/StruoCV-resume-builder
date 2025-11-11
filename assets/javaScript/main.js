@@ -14,31 +14,30 @@ function UnshowForms() {
     formPart[i].style.display = "none";
   }
 }
-// UnshowForms();
-// function updateStatus() {
-//     nextBtn.addEventListener('click',function(e){
-//         e.preventDefault();
-//         if(counter>=0 && counter<6){
-//             formPart[counter].style.display='none';
-//             counter++;
-//             formPart[counter].style.display='block';
-//             progressInd.style.width=progressWidth[counter];
-//             circles[counter].className='active circle';
-//         }
-//     })
-//         prevBtn.addEventListener('click',function(e){
-//         e.preventDefault();
-//         if(counter>0 && counter<=7){
-//             formPart[counter].style.display='none';
-//             counter--;
-//             formPart[counter].style.display='block';
-//             progressInd.style.width=progressWidth[counter];
-//             circles[counter+1].className='circle';
-//         }
-//     })
+UnshowForms();
+function updateStatus() {
+    nextBtn.addEventListener('click',function(e){
+        e.preventDefault();
+        if(counter>=0 && counter<6){
+            formPart[counter].style.display='none';
+            counter++;
+            formPart[counter].style.display='block';
+            progressInd.style.width=progressWidth[counter];
+            circles[counter].className='active circle';
+        }
+    })
+        prevBtn.addEventListener('click',function(e){
+        e.preventDefault();
+        if(counter>0 && counter<=7){
+            formPart[counter].style.display='none';
+            counter--;
+            formPart[counter].style.display='block';
+            progressInd.style.width=progressWidth[counter];
+            circles[counter+1].className='circle';
+        }
+    })
 
-// }
-// updateStatus();
+}
 
 const NameInput = document.getElementById("NameInput");
 const LastInput = document.getElementById("LastInput");
@@ -93,6 +92,7 @@ function textVerification(input, errorSpan) {
   if (patterns.text.test(input.value.trim())) {
     input.style.border = "2px #5C9310 solid";
     errorSpan.innerHTML = "";
+    updateStatus();
   } else {
     errorSpan.textContent = "Error";
     errorSpan.style.color = "#D10007";
@@ -109,7 +109,9 @@ function emailVerification(input, errorSpan){
     errorSpan.style.color = "#D10007";
     errorSpan.style.fontSize = "12px";
     input.style.border = "#D10007 solid 2px";
+    return false;
   }
+  return true;
 }
 function phoneVerification(input, errorSpan){
     if (patterns.phone.test(input.value.trim())) {
@@ -191,3 +193,25 @@ showErrors();
 
 const addButtonLinks = document.getElementById('addButtonLinks');
 const links = document.getElementById('links');
+
+// import html2pdf from 'html2pdf.js';
+// const template = document.getElementById('template');
+// const opt = {
+//   margin: 10,            // margin in mm
+//   filename: 'cv.pdf',
+//   jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+// };
+
+console.log(links)
+
+addButtonLinks.addEventListener('click',function(e){
+  e.preventDefault();
+  links.innerHTML+=`
+  <label for="exTitleInput">Website's Name</label>
+  <input placeholder="Example" id="Example" type="text" name="link" class="border py-1 bg-[#E8F0FF] w-56"/>
+  <span id="###"></span>
+  <label for="linkInput">Website's link</label>
+  <input id="linkInput" type="text" name="link" placeholder="example.com/aminE123" class="border bg-[#E8F0FF] py-1 w-full">
+  <span id="linkError"></span>
+  `
+})
