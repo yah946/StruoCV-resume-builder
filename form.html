@@ -132,6 +132,7 @@
             <div>
               <label for="NameInput">First name</label>
               <input
+                placeholder="Mohamed Amine"
                 id="NameInput"
                 type="text"
                 name="First_name"
@@ -142,6 +143,7 @@
             <div>
               <label for="LastInput">Last name</label>
               <input
+                placeholder="Ben Ismail"
                 id="LastInput"
                 type="text"
                 name="Last_name"
@@ -153,32 +155,104 @@
         </div>
         <div>
           <div class="mt-8 flex gap-2 items-center">
-            <label for="DayInput">Day</label>
-            <input
-              id="DayInput"
-              type="number"
+            <label for="Day">Day</label>
+            <select
+              id="Day"
               name="Day"
-              class="border bg-[#E8F0FF] py-1 w-[6%]"
-            />
-            <span id="dayError"></span>
-            <label for="monthInput">Month</label>
-            <input
-              id="monthInput"
-              type="number"
+              class="border bg-[#E8F0FF] py-2 w-[18%]"
+            >
+                <option value="first">1</option>
+                <option value="second">2</option>
+                <option value="third">3</option>
+                <option value="fourth">4</option>
+                <option value="fifth">5</option>
+                <option value="sixth">6</option>
+                <option value="seventh">7</option>
+                <option value="eighth">8</option>
+                <option value="ninth">9</option>
+                <option value="tenth">10</option>
+                <option value="eleventh">11</option>
+                <option value="twelfth">12</option>
+                <option value="thirteenth">13</option>
+                <option value="fourteenth">14</option>
+                <option value="fifteenth">15</option>
+                <option value="sixteenth">16</option>
+                <option value="seventeenth">17</option>
+                <option value="eighteenth">18</option>
+                <option value="nineteenth">19</option>
+                <option value="twentieth">20</option>
+                <option value="twenty-first">21</option>
+                <option value="twenty-second">22</option>
+                <option value="twenty-third">23</option>
+                <option value="twenty-fourth">24</option>
+                <option value="twenty-fifth">25</option>
+                <option value="twenty-sixth">26</option>
+                <option value="twenty-seventh">27</option>
+                <option value="twenty-eighth">28</option>
+                <option value="twenty-ninth">29</option>
+                <option value="thirtieth">30</option>
+                <option value="thirty-first">31</option>
+            </select>
+            <label for="month">Month</label>
+            <select
+              id="month"
               name="Month"
-              class="border bg-[#E8F0FF] py-1 w-[6%]"
-            />
-            <span id="monthError"></span>
-            <label for="yearInput">Year</label>
-            <input
-              id="yearInput"
-              type="number"
+              class="border bg-[#E8F0FF] py-2 w-[18%]"
+            >
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
+            <label for="year">Year</label>
+            <select
+              id="year"
               name="Year"
-              class="border bg-[#E8F0FF] py-1"
-            />
-            <span id="yearError"></span>
+              class="border bg-[#E8F0FF] py-2 w-[18%]"
+            >
+                <option value="first">1994</option>
+                <option value="second">1995</option>
+                <option value="third">1996</option>
+                <option value="fourth">1997</option>
+                <option value="fifth">1998</option>
+                <option value="sixth">1999</option>
+                <option value="seventh">2000</option>
+                <option value="eighth">2001</option>
+                <option value="ninth">2002</option>
+                <option value="tenth">2003</option>
+                <option value="eleventh">2004</option>
+                <option value="twelfth">2005</option>
+                <option value="thirteenth">2006</option>
+                <option value="fourteenth">2007</option>
+                <option value="fifteenth">2008</option>
+                <option value="sixteenth">2009</option>
+                <option value="seventeenth">2010</option>
+                <option value="eighteenth">2011</option>
+                <option value="nineteenth">2012</option>
+                <option value="twentieth">2013</option>
+                <option value="twenty-first">2014</option>
+                <option value="twenty-second">2015</option>
+                <option value="twenty-third">2016</option>
+                <option value="twenty-fourth">2017</option>
+                <option value="twenty-fifth">2018</option>
+                <option value="twenty-sixth">2019</option>
+                <option value="twenty-seventh">2020</option>
+                <option value="twenty-eighth">2021</option>
+                <option value="twenty-ninth">2022</option>
+                <option value="thirtieth">2023</option>
+                <option value="thirty-first">2024</option>
+            </select>
             <label for="BirthPlaceInput">Place of birth</label>
             <input
+              placeholder="Khenifra"
               id="BirthPlaceInput"
               type="text"
               name="Birth_place"
@@ -191,6 +265,7 @@
           <div class="mt-8">
             <label for="NationalityInput">Nationality</label>
             <input
+              placeholder="Moroccan "
               id="NationalityInput"
               type="text"
               name="Nationality"
@@ -216,6 +291,7 @@
         <div class="mt-4">
           <label for="cityInput">City/Town</label>
           <input
+            placeholder="Youssoufia"
             id="cityInput"
             type="text"
             name="city"
@@ -240,6 +316,7 @@
         <div class="flex gap-4 items-center">
           <label for="emailInput">Email</label>
           <input
+            placeholder="example@example.com"
             id="emailInput"
             type="email"
             name="email"
@@ -248,6 +325,7 @@
           <span id="emailError"></span>
           <label for="phoneInput">Phone number</label>
           <input
+            placeholder="0700000000"
             id="phoneInput"
             type="text"
             name="phone"
@@ -255,23 +333,25 @@
           />
           <span id="phoneError"></span>
         </div>
-        <div class="mt-4">
+        <div class="links" class="mt-4">
           <label for="linkedlnInput">Linkedln</label>
           <input
+            placeholder="linkedin.com/in/mohamed_amine"
             id="linkedlnInput"
             type="text"
             name="linkedln"
             class="border bg-[#E8F0FF] py-1 w-full"
           />
-          <span id="linkError"></span>
+          <span id="linkedlnError"></span>
           <label for="githubInput">Github</label>
           <input
+            placeholder="https://github.com/mohamine32"
             id="githubInput"
             type="text"
             name="Github"
             class="border bg-[#E8F0FF] py-1 w-full"
           />
-          <span id="linkError"></span>
+          <span id="githubError"></span>
           <!-- More links -->
           <!-- <label for="linkedlnInput">Linkedln</label>
             <input id="linkedlnInput" type="text" name="linkedln" class="border bg-[#E8F0FF] py-1 w-full">
@@ -299,6 +379,7 @@
               theme: "snow",
             });
           </script>
+          <span id="quillError"></span>
         </div>
         <h3 class="mt-4 mb-4">Technical Skills</h3>
         <div class="flex flex-col gap-2">
@@ -317,33 +398,36 @@
             <div>
               <label for="exTitleInput">Title</label>
               <input
+                placeholder="Experience"
                 id="exTitleInput"
                 type="text"
                 name="Professional_Experience"
                 class="border py-1 bg-[#E8F0FF] w-56"
               />
-              <span id="sizeError"></span>
+              <span id="exTitleError"></span>
             </div>
             <!-- Date Form: XXXX-XXXX -->
             <div>
               <label for="exDateInput">Date</label>
               <input
+                placeholder="XXXX-XXXX"
                 id="exDateInput"
                 type="text"
                 name="DateOfProfessionalExperience"
                 class="border py-1 bg-[#E8F0FF] w-56"
               />
-              <span id="dateError"></span>
+              <span id="exDateError"></span>
             </div>
             <div>
               <label for="exPosteInput">Poste</label>
               <input
+                placeholder="team leader"
                 id="exPosteInput"
                 type="text"
                 name="PosteOfProfessionalExperience"
                 class="border py-1 bg-[#E8F0FF] w-56"
               />
-              <span id="dateError"></span>
+              <span id="exPosteError"></span>
             </div>
           </div>
           <div class="mt-4">
@@ -353,7 +437,7 @@
               id="mission"
               class="border w-full h-16 block"
             ></textarea>
-            <span id="textAreaError"></span>
+            <span id="missionError"></span>
           </div>
           <div class="flex justify-center">
             <button
@@ -370,16 +454,18 @@
             <div>
               <label for="proTitleInput">Title</label>
               <input
+                placeholder="Project"
                 id="proTitleInput"
                 type="text"
                 name="Completed_Project"
                 class="border py-1 bg-[#E8F0FF] w-56"
               />
-              <span id="sizeError"></span>
+              <span id="proTitleError"></span>
             </div>
             <div>
               <label for="ProDateInput">Date</label>
               <input
+                placeholder="XXXX"
                 id="ProDateInput"
                 type="text"
                 name="DateOfCompletedProject"
@@ -395,7 +481,7 @@
               id="descriptionOfProject"
               class="border w-full h-16 block"
             ></textarea>
-            <span id="textAreaError"></span>
+            <span id="descriptionOfProjectError"></span>
           </div>
           <div class="flex justify-center">
             <button
@@ -414,33 +500,36 @@
           <div>
             <label for="schoolInput">School</label>
             <input
+              placeholder="Tarik Ben Ziyad"
               id="schoolInput"
               name="School"
               type="text"
               class="border py-1 bg-[#E8F0FF] w-56"
             />
-            <span id="sizeError"></span>
+            <span id="schoolError"></span>
           </div>
           <div>
             <label for="cityInputSch">City</label>
             <input
+              placeholder="Khenifra"
               id="cityInputSch"
               type="text"
               name="SchoolCity"
               class="border py-1 bg-[#E8F0FF] w-56"
             />
-            <span id="sizeError"></span>
+            <span id="cityErrorSch"></span>
           </div>
           <!-- XXXX-XXXX -->
           <div>
             <label for="schDateInput">Date</label>
             <input
+              placeholder="XXXX-XXXX"
               id="schDateInput"
               type="text"
               name="SchoolDate"
               class="border py-1 bg-[#E8F0FF] w-56"
             />
-            <span id="dateError"></span>
+            <span id="schDateError"></span>
           </div>
         </div>
         <div class="flex justify-center">
@@ -456,28 +545,31 @@
           <div>
             <label for="certInput">Certification Name</label>
             <input
+              placeholder="CCNA"
               id="certInput"
               type="text"
               name="Certification"
               class="border py-1 bg-[#E8F0FF] w-56"
             />
-            <span id="sizeError"></span>
+            <span id="certError"></span>
           </div>
           <div>
             <!-- an et demi/ 1.4 an / 10 ans / 4 mois / 2 mois -->
             <label for="durationInput">Duration</label>
             <input
+              placeholder="an et demi/1.4 an/ 10 ans/ 4 mois/ 2 mois"
               id="durationInput"
               type="text"
               name="Duration"
               class="border py-1 bg-[#E8F0FF] w-56"
             />
-            <span id="sizeError"></span>
+            <span id="durationError"></span>
           </div>
           <!-- XXXX -->
           <div>
             <label for="certDateInput">Date</label>
             <input
+              placeholder="2025"
               id="certDateInput"
               type="number"
               name="certDate"
@@ -510,6 +602,7 @@
         <div class="mt-4">
           <label for="hobbyInput">Hobbies</label>
           <input
+            placeholder="Hiking, Fishing, Reading, Meditation, Chess, Swimming..."
             id="hobbyInput"
             type="text"
             name="Hobbies"
@@ -520,17 +613,18 @@
           <div>
             <label for="langInput">Languages</label>
             <input
+              placeholder="Arabic/English/Frech..."
               id="langInput"
               type="text"
               name="langSkills"
               class="border py-1 bg-[#E8F0FF] w-56"
             />
-            <span id="sizeError"></span>
+            <span id="###"></span>
           </div>
           <div>
-            <!-- maternelle/A2/B1/c2/beginner -->
             <label for="levelInput">level</label>
             <input
+              placeholder="maternelle/A1/C2/beginner..."
               id="levelInput"
               type="text"
               name="level"
