@@ -15,6 +15,7 @@ function UnshowForms() {
   }
 }
 UnshowForms();
+
 function updateStatus() {
     nextBtn.addEventListener('click',function(e){
         e.preventDefault();
@@ -38,6 +39,7 @@ function updateStatus() {
     })
 
 }
+updateStatus();
 
 const NameInput = document.getElementById("NameInput");
 const LastInput = document.getElementById("LastInput");
@@ -81,7 +83,7 @@ const durationInput = document.getElementById('durationInput');
 const durationError = document.getElementById('durationError');
 
 let patterns = {
-  text: /^[A-Za-z]{3,30}$/,
+  text: /^[A-Za-z\s{1}]{3,30}$/,
   email: /^[\w.-]{3,30}@[\w.-]{5,10}\.[a-zA-Z]{2,5}$/,
   phone: /^0{1}[6-7][0-9]{8}$/,
   link:/^(?:https?:\/\/)?(?:www\.)?[\w.-]{2,}\.[a-z]{2,}\/[A-Za-z0-9._-]{3,15}$/i,
@@ -92,7 +94,6 @@ function textVerification(input, errorSpan) {
   if (patterns.text.test(input.value.trim())) {
     input.style.border = "2px #5C9310 solid";
     errorSpan.innerHTML = "";
-    updateStatus();
   } else {
     errorSpan.textContent = "Error";
     errorSpan.style.color = "#D10007";
@@ -151,7 +152,7 @@ function dateVerification(input, errorSpan){
     input.style.border = "2px #5C9310 solid";
     errorSpan.innerHTML = "";
   } else {
-    errorSpan.innerHTML = "Please enter a valid duration (example:2024-2025)";
+    errorSpan.innerHTML = "Please enter a valid duration";
     errorSpan.style.color = "#D10007";
     errorSpan.style.fontSize = "12px";
     input.style.border = "#D10007 solid 2px";
@@ -163,8 +164,8 @@ function showErrors(){
         //text Verification
         textVerification(NameInput, FirstNameError);
         textVerification(LastInput, LastNameError);
-        textVerification(BirthPlaceInput,BirthPlaceError);
-        textVerification(NationalityInput,NationalityError);
+        // textVerification(BirthPlaceInput,BirthPlaceError);
+        // textVerification(NationalityInput,NationalityError);
         textVerification(cityInput,cityError);
         textVerification(exTitleInput,exTitleError);
         textVerification(exPosteInput,exPosteError);
@@ -190,28 +191,275 @@ function showErrors(){
 }
 showErrors();
 
-
-const addButtonLinks = document.getElementById('addButtonLinks');
-const links = document.getElementById('links');
-
 // import html2pdf from 'html2pdf.js';
-// const template = document.getElementById('template');
+// const content = document.getElementById('template');
 // const opt = {
 //   margin: 10,            // margin in mm
 //   filename: 'cv.pdf',
 //   jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
 // };
+// downloadButton.addEventListener('click',()=>{
+//         if(!content.innerText.trim()){
+//             alert("le contenu est vide");
+//             return ;
+//         }
+//         downloadButton.textContent = 'generation en cours';
+//         downloadButton.style.background = '#91E61A';
+//         html12pdf.from(content).save().then(()=>{
+//           downloadButton.textContent = 'Download'
+//         });
+//     })
 
-console.log(links)
-
+const addButtonLinks = document.getElementById('addButtonLinks');
+const links = document.getElementById('links');
 addButtonLinks.addEventListener('click',function(e){
   e.preventDefault();
   links.innerHTML+=`
-  <label for="exTitleInput">Website's Name</label>
-  <input placeholder="Example" id="Example" type="text" name="link" class="border py-1 bg-[#E8F0FF] w-56"/>
-  <span id="###"></span>
-  <label for="linkInput">Website's link</label>
-  <input id="linkInput" type="text" name="link" placeholder="example.com/aminE123" class="border bg-[#E8F0FF] py-1 w-full">
-  <span id="linkError"></span>
+       <div class="flex justify-between items-center mt-8">
+          <label class="text-nowrap mr-0.5" for="emailInput">Website's Name</label>
+          <input
+            placeholder="Example"
+            id="emailInput"
+            type="email"
+            name="email"
+            class="border bg-[#E8F0FF] mr-4 py-1.5 w-full"
+          />
+          <span id="emailError"></span>
+          <label class="text-nowrap mr-0.5" for="phoneInput">Website's link</label>
+          <input
+            placeholder="example.com/username"
+            id="phoneInput"
+            type="text"
+            name="phone"
+            class="border bg-[#E8F0FF] py-1.5 w-full"
+          />
+          <span id="phoneError"></span>
+        </div>
   `
 })
+
+const addButtonEX = document.getElementById('addButtonEX');
+const NewEx = document.getElementById("NewEx");
+addButtonEX.addEventListener('click',function(e){
+  e.preventDefault();
+  NewEx.innerHTML+=`
+       <div class="flex items-center">
+            <div class="w-full">
+              <label for="exTitleInput">Title</label><br>
+              <input
+                placeholder="Experience"
+                id="exTitleInput"
+                type="text"
+                name="Professional_Experience"
+                class="relative border py-1.5 bg-[#E8F0FF] w-64"
+              /><br>
+              <span id="exTitleError"></span>
+            </div>
+            <!-- Date Form: Month XXXX- MonthXXXX -->
+            <div class="w-full">
+              <label for="exDateInput">Date</label><br>
+              <input
+                placeholder="Sept 2024- May 2025"
+                id="exDateInput"
+                type="text"
+                name="DateOfProfessionalExperience"
+                class="border py-1.5 bg-[#E8F0FF] w-64"
+              /><br>
+              <span id="exDateError"></span>
+            </div>
+            <div class="w-full">
+              <label for="exPosteInput">Poste</label><br>
+              <input
+                placeholder="team leader"
+                id="exPosteInput"
+                type="text"
+                name="PosteOfProfessionalExperience"
+                class="mr-4 border py-1.5 bg-[#E8F0FF] w-full"
+              /><br>
+              <span id="exPosteError"></span>
+            </div>
+          </div>
+          <div class="mt-4">
+            <label for="mission">Main Missions</label>
+            <textarea
+              placeholder="Développeur full stack en formation..."
+              name="mission"
+              id="mission"
+              class="border w-full h-24 bg-[#E8F0FF]"
+            ></textarea>
+            <span id="missionError"></span>
+          </div>
+  `
+})
+const NewPro = document.getElementById('NewPro');
+const addButtonProject = document.getElementById('addButtonProject');
+addButtonProject.addEventListener('click',function(e){
+  e.preventDefault();
+  NewPro.innerHTML+=`
+  <hr class="mt-4 mb-4">
+  <div class="flex items-center gap-8">
+            <div class="w-full">
+              <label for="proTitleInput">Title</label>
+              <input
+                placeholder="Struo-Cv"
+                id="proTitleInput"
+                type="text"
+                name="Completed_Project"
+                class="border py-1.5 bg-[#E8F0FF] w-full"
+              />
+              <span id="proTitleError"></span>
+            </div>
+            <div class="w-full">
+              <label for="ProDateInput">Date</label>
+              <input
+                placeholder="Nov 2025"
+                id="ProDateInput"
+                type="text"
+                name="DateOfCompletedProject"
+                class="border py-1.5 bg-[#E8F0FF] w-full"
+              />
+              <span id="yearError"></span>
+            </div>
+          </div>
+          <div class="mt-4">
+            <label for="descriptionOfProject">Description</label>
+            <textarea
+              placeholder="Online CV Generator..."
+              name="descriptionOfProject"
+              id="descriptionOfProject"
+              class="border w-full h-16 bg-[#E8F0FF]"
+            ></textarea>
+            <span id="descriptionOfProjectError"></span>
+  `
+})
+
+const NewSchool = document.getElementById('NewSchool');
+const addSchool = document.getElementById('addSchool');
+addSchool.addEventListener('click',function(e){
+  e.preventDefault();
+  NewSchool.innerHTML+=`
+  <div class="flex items-center gap-8">
+  <div class="w-full">
+            <label for="schoolInput">School</label>
+            <input
+              placeholder="Tarik Ben Ziyad"
+              id="schoolInput"
+              name="School"
+              type="text"
+              class="border py-1.5 bg-[#E8F0FF] w-full"
+            />
+            <span id="schoolError"></span>
+          </div>
+          <div class="w-full">
+            <label for="cityInputSch">City</label>
+            <input
+              placeholder="Khenifra"
+              id="cityInputSch"
+              type="text"
+              name="SchoolCity"
+              class="border py-1.5 bg-[#E8F0FF] w-full"
+            />
+            <span id="cityErrorSch"></span>
+          </div>
+          <!-- Month XXXX-MonthXXXX -->
+          <div class="w-full">
+            <label for="schDateInput">Date</label>
+            <input
+              placeholder="Sept 2024- Jun 2025"
+              id="schDateInput"
+              type="text"
+              name="SchoolDate"
+              class="border py-1.5 bg-[#E8F0FF] w-full"
+            />
+            <span id="schDateError"></span>
+          </div>
+          </div>
+  `
+})
+
+const NewCert = document.getElementById('NewCert');
+const addCert = document.getElementById('addCert');
+addCert.addEventListener('click',function(e){
+  e.preventDefault();
+  NewCert.innerHTML+=`
+  <div class="flex items-center gap-8">
+          <div class="w-full">
+            <label for="certInput">Certification Name</label>
+            <input
+              placeholder="CCNA"
+              id="certInput"
+              type="text"
+              name="Certification"
+              class="border py-1.5 bg-[#E8F0FF] w-full"
+            />
+            <span id="certError"></span>
+          </div>
+          <div class="w-full">
+            <!-- an et demi/ 1.4 an / 10 ans / 4 mois / 2 mois -->
+            <label for="durationInput">Duration</label>
+            <input
+              placeholder="an et demi/1.4 an/ 10 ans/ 4 mois/ 2 mois"
+              id="durationInput"
+              type="text"
+              name="Duration"
+              class="border py-1.5 bg-[#E8F0FF] w-full"
+            />
+            <span id="durationError"></span>
+          </div>
+          <!-- XXXX -->
+          <div>
+            <label for="certDateInput">Date</label>
+            <input
+              placeholder="2025"
+              id="certDateInput"
+              type="number"
+              name="certDate"
+              class="border py-1.5 bg-[#E8F0FF] w-16"
+            />
+            <span id="yearError"></span>
+          </div>
+        </div>
+  `
+})
+
+const NewLang = document.getElementById('NewLang');
+const addLang = document.getElementById('addLang');
+addLang.addEventListener('click',function(e){
+  e.preventDefault();
+ NewLang.innerHTML+=`
+  <div class="mt-4 flex gap-8">
+          <div>
+            <label for="langInput">Languages</label>
+            <input
+              placeholder="English/French..."
+              id="langInput"
+              type="text"
+              name="langSkills"
+              class="border py-1.5 bg-[#E8F0FF] w-56"
+            />
+            <span id="###"></span>
+          </div>
+          <div class="w-full">
+            <label for="levelInput">level</label>
+            <input
+              placeholder="Notion/Professional/A1/C2/beginner..."
+              id="levelInput"
+              type="text"
+              name="level"
+              class="border py-1.5 bg-[#E8F0FF] w-full"
+            />
+            <span id="sizeError"></span>
+          </div>
+        </div>
+  `
+})
+
+const imageUpload = document.getElementById('imageUpload');
+const profileImg = document.getElementById('profileImg');
+const labelImage = document.querySelector('.labelImage');
+
+imageUpload.onchange = function (){
+  profileImg.src = URL.createObjectURL(imageUpload.files[0]);
+  profileImg.className='absolute h-36 w-36 cursor-pointer';
+  labelImage.style.opacity='0%';
+}

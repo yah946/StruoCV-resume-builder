@@ -1,5 +1,8 @@
+#Ignore my files
 .vscode/
 node_modules/
 les maquettes/
 package-lock.json
 package.json
+maquettes/
+assets\images\me.png

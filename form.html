@@ -8,7 +8,8 @@
     <meta name="author" content="Mohamed Seh" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Framework Tailwind (Css) -->
-    <link href="./assets/css/output.css" rel="stylesheet" />
+    <!-- <link href="./assets/css/output.css" rel="stylesheet" /> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- JavaScript's file -->
     <script defer src="./assets/javaScript/main.js"></script>
     <!-- Faviocon -->
@@ -54,51 +55,53 @@
       </nav>
     </header>
     <!-- Stepper bar -->
-     <!-- Style Css -->
-     <style>
-      .container{
-        width:960px;
+    <!-- Style Css -->
+    <style>
+      .container {
+        width: 960px;
         margin: 8% auto 0 auto;
       }
-      .steps{
+      .steps {
         display: flex;
-        align-items:center;
-        justify-content:space-between;
+        align-items: center;
+        justify-content: space-between;
         position: relative;
       }
-      .circle{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        font-size:24px;
-        height:50px;
-        width:50px;
-        border:solid 3px black;
-        border-radius:50%;
-        background:#B8BAFF;
+      .circle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        height: 50px;
+        width: 50px;
+        border: solid 3px black;
+        border-radius: 50%;
+        background: #b8baff;
       }
-      .active{
-        background:#A25DA2;
+      .active {
+        background: #a25da2;
         color: #dadcff;
       }
-      .progress-bar{
-        position:absolute;
-        height:4px;
-        width:100%;
-        background:#b8baff;
-        z-index:-1;
+      .progress-bar {
+        position: absolute;
+        height: 4px;
+        width: 100%;
+        background: #b8baff;
+        z-index: -1;
       }
-      .indicator{
+      .indicator {
         height: 100%;
         position: absolute;
-        background:#A25DA2;
-        width:0;
+        background: #a25da2;
+        width: 0;
       }
-     </style>
-     <!-- Structure Html -->
+    </style>
+    <!-- Structure Html -->
     <div class="container">
       <div id="steps" class="steps">
-        <span class="circle active"><i class="fa-solid fa-address-card"></i></span>
+        <span class="circle active"
+          ><i class="fa-solid fa-address-card"></i
+        ></span>
         <span class="circle"><i class="fa-solid fa-at"></i></span>
         <span class="circle"><i class="fa-solid fa-file-lines"></i></span>
         <span class="circle"><i class="fa-solid fa-user-tie"></i></span>
@@ -111,153 +114,156 @@
       </div>
     </div>
     <!-- Resume Information -->
-    <form id="form" class="shadow-md hover:bg-[#F0F0FF] hover:shadow-xl/30 rounded-lg my-14 mx-32 py-5 px-12">
+    <form
+      id="form"
+      class="w-[960px] shadow-md hover:bg-[#F0F0FF] hover:shadow-xl/30 rounded-lg my-14 mx-32 py-5 px-12"
+    >
       <!-- Inputs -->
       <!-- First Form -->
       <div class="form__part">
-        <div class="flex">
+        <div class="mt-4 flex gap-8">
           <!-- Add photo -->
+          <img title="click to change image" class="absolute h-36 w-36 hidden" id="profileImg">
           <input
-            style="display: none"
+            style="display:none;"
             type="file"
             id="imageUpload"
             accept="image/*"
           />
           <label
             for="imageUpload"
-            class="border border-3 border-dashed rounded-lg inline-block mr-8 w-36 h-36 text-center py-12 bg-[#B8B8FF] text-[#0000A3] cursor-pointer hover:bg-[#0000FF] hover:text-[#E6E6FF]"
+            class="labelImage border-3 border-dashed rounded-lg w-36 h-36 text-center py-12 bg-[#B8B8FF] text-[#0000A3] cursor-pointer hover:bg-[#0000FF] hover:text-[#E6E6FF]"
             >Add photo (optional)</label
           >
-
-          <div>
+          <div class="w-full flex-col">
             <div>
-              <label for="NameInput">First name</label>
+              <label for="NameInput">First name*</label>
               <input
                 placeholder="Mohamed Amine"
                 id="NameInput"
                 type="text"
                 name="First_name"
-                class="border bg-[#E8F0FF] py-1 w-full"
+                class="border bg-[#E8F0FF] py-1.5 w-full"
               />
               <span id="FirstNameError"></span>
             </div>
             <div>
-              <label for="LastInput">Last name</label>
+              <label for="LastInput">Last name*</label>
               <input
                 placeholder="Ben Ismail"
                 id="LastInput"
                 type="text"
                 name="Last_name"
-                class="border bg-[#E8F0FF] py-1 w-full"
+                class="border bg-[#E8F0FF] py-1.5 w-full"
               />
               <span id="LastNameError"></span>
             </div>
           </div>
         </div>
         <div>
-          <div class="mt-8 flex gap-2 items-center">
-            <label for="Day">Day</label>
+          <div class="w-full mt-8 flex items-center">
+            <label class="mr-1" for="Day">Day</label>
             <select
               id="Day"
               name="Day"
-              class="border bg-[#E8F0FF] py-2 w-[18%]"
+              class="border mr-3 bg-[#E8F0FF] py-2 w-16"
             >
-                <option value="first">1</option>
-                <option value="second">2</option>
-                <option value="third">3</option>
-                <option value="fourth">4</option>
-                <option value="fifth">5</option>
-                <option value="sixth">6</option>
-                <option value="seventh">7</option>
-                <option value="eighth">8</option>
-                <option value="ninth">9</option>
-                <option value="tenth">10</option>
-                <option value="eleventh">11</option>
-                <option value="twelfth">12</option>
-                <option value="thirteenth">13</option>
-                <option value="fourteenth">14</option>
-                <option value="fifteenth">15</option>
-                <option value="sixteenth">16</option>
-                <option value="seventeenth">17</option>
-                <option value="eighteenth">18</option>
-                <option value="nineteenth">19</option>
-                <option value="twentieth">20</option>
-                <option value="twenty-first">21</option>
-                <option value="twenty-second">22</option>
-                <option value="twenty-third">23</option>
-                <option value="twenty-fourth">24</option>
-                <option value="twenty-fifth">25</option>
-                <option value="twenty-sixth">26</option>
-                <option value="twenty-seventh">27</option>
-                <option value="twenty-eighth">28</option>
-                <option value="twenty-ninth">29</option>
-                <option value="thirtieth">30</option>
-                <option value="thirty-first">31</option>
+              <option value="first">1</option>
+              <option value="second">2</option>
+              <option value="third">3</option>
+              <option value="fourth">4</option>
+              <option value="fifth">5</option>
+              <option value="sixth">6</option>
+              <option value="seventh">7</option>
+              <option value="eighth">8</option>
+              <option value="ninth">9</option>
+              <option value="tenth">10</option>
+              <option value="eleventh">11</option>
+              <option value="twelfth">12</option>
+              <option value="thirteenth">13</option>
+              <option value="fourteenth">14</option>
+              <option value="fifteenth">15</option>
+              <option value="sixteenth">16</option>
+              <option value="seventeenth">17</option>
+              <option value="eighteenth">18</option>
+              <option value="nineteenth">19</option>
+              <option value="twentieth">20</option>
+              <option value="twenty-first">21</option>
+              <option value="twenty-second">22</option>
+              <option value="twenty-third">23</option>
+              <option value="twenty-fourth">24</option>
+              <option value="twenty-fifth">25</option>
+              <option value="twenty-sixth">26</option>
+              <option value="twenty-seventh">27</option>
+              <option value="twenty-eighth">28</option>
+              <option value="twenty-ninth">29</option>
+              <option value="thirtieth">30</option>
+              <option value="thirty-first">31</option>
             </select>
-            <label for="month">Month</label>
+            <label class="mr-1" for="month">Month</label>
             <select
               id="month"
               name="Month"
-              class="border bg-[#E8F0FF] py-2 w-[18%]"
+              class="border mr-3 bg-[#E8F0FF] py-2 w-40"
             >
-                <option value="January">January</option>
-                <option value="February">February</option>
-                <option value="March">March</option>
-                <option value="April">April</option>
-                <option value="May">May</option>
-                <option value="June">June</option>
-                <option value="July">July</option>
-                <option value="August">August</option>
-                <option value="September">September</option>
-                <option value="October">October</option>
-                <option value="November">November</option>
-                <option value="December">December</option>
+              <option value="January">January</option>
+              <option value="February">February</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
             </select>
-            <label for="year">Year</label>
+            <label class="mr-1" for="year">Year</label>
             <select
               id="year"
               name="Year"
-              class="border bg-[#E8F0FF] py-2 w-[18%]"
+              class="border mr-3 bg-[#E8F0FF] py-2 w-20"
             >
-                <option value="first">1994</option>
-                <option value="second">1995</option>
-                <option value="third">1996</option>
-                <option value="fourth">1997</option>
-                <option value="fifth">1998</option>
-                <option value="sixth">1999</option>
-                <option value="seventh">2000</option>
-                <option value="eighth">2001</option>
-                <option value="ninth">2002</option>
-                <option value="tenth">2003</option>
-                <option value="eleventh">2004</option>
-                <option value="twelfth">2005</option>
-                <option value="thirteenth">2006</option>
-                <option value="fourteenth">2007</option>
-                <option value="fifteenth">2008</option>
-                <option value="sixteenth">2009</option>
-                <option value="seventeenth">2010</option>
-                <option value="eighteenth">2011</option>
-                <option value="nineteenth">2012</option>
-                <option value="twentieth">2013</option>
-                <option value="twenty-first">2014</option>
-                <option value="twenty-second">2015</option>
-                <option value="twenty-third">2016</option>
-                <option value="twenty-fourth">2017</option>
-                <option value="twenty-fifth">2018</option>
-                <option value="twenty-sixth">2019</option>
-                <option value="twenty-seventh">2020</option>
-                <option value="twenty-eighth">2021</option>
-                <option value="twenty-ninth">2022</option>
-                <option value="thirtieth">2023</option>
-                <option value="thirty-first">2024</option>
+              <option value="first">1994</option>
+              <option value="second">1995</option>
+              <option value="third">1996</option>
+              <option value="fourth">1997</option>
+              <option value="fifth">1998</option>
+              <option value="sixth">1999</option>
+              <option value="seventh">2000</option>
+              <option value="eighth">2001</option>
+              <option value="ninth">2002</option>
+              <option value="tenth">2003</option>
+              <option value="eleventh">2004</option>
+              <option value="twelfth">2005</option>
+              <option value="thirteenth">2006</option>
+              <option value="fourteenth">2007</option>
+              <option value="fifteenth">2008</option>
+              <option value="sixteenth">2009</option>
+              <option value="seventeenth">2010</option>
+              <option value="eighteenth">2011</option>
+              <option value="nineteenth">2012</option>
+              <option value="twentieth">2013</option>
+              <option value="twenty-first">2014</option>
+              <option value="twenty-second">2015</option>
+              <option value="twenty-third">2016</option>
+              <option value="twenty-fourth">2017</option>
+              <option value="twenty-fifth">2018</option>
+              <option value="twenty-sixth">2019</option>
+              <option value="twenty-seventh">2020</option>
+              <option value="twenty-eighth">2021</option>
+              <option value="twenty-ninth">2022</option>
+              <option value="thirtieth">2023</option>
+              <option value="thirty-first">2024</option>
             </select>
-            <label for="BirthPlaceInput">Place of birth</label>
+            <label class="text-nowrap mr-1" for="BirthPlaceInput">Place of birth</label>
             <input
               placeholder="Khenifra"
               id="BirthPlaceInput"
               type="text"
               name="Birth_place"
-              class="border bg-[#E8F0FF] py-1 w-[50%]"
+              class="border bg-[#E8F0FF] py-1.5 w-full"
             />
             <span id="BirthPlaceError"></span>
           </div>
@@ -270,14 +276,14 @@
               id="NationalityInput"
               type="text"
               name="Nationality"
-              class="border bg-[#E8F0FF] py-1 w-[60%]"
+              class="border bg-[#E8F0FF] py-1.5 w-[400px]"
             />
             <span id="NationalityError"></span>
-            <label for="statusInput">Family Status</label>
+            <label class="mr-1.5" for="statusInput">Family Status</label>
             <select
               id="statusInput"
               name="Family Status"
-              class="border bg-[#E8F0FF] py-2 w-[18%]"
+              class="border bg-[#E8F0FF] py-2 w-64"
             >
               <optgroup label="Family Status">
                 <option value="single"></option>
@@ -296,71 +302,71 @@
             id="cityInput"
             type="text"
             name="city"
-            class="border bg-[#E8F0FF] py-1 w-full"
+            class="border bg-[#E8F0FF] py-1.5 w-full"
           />
           <span id="cityError"></span>
         </div>
-        <div class="mt-4">
+        <div class="mt-4 cursor-default">
           <h3>Gender</h3>
           <div>
-            <input id="GenderInputM" type="radio" name="gender" />
-            <label for="GenderInputM">Male</label>
+            <input class="cursor-pointer" id="GenderInputM" type="radio" name="gender"/>
+            <label class="cursor-pointer" for="GenderInputM">Male</label>
           </div>
           <div>
-            <input id="GenderInputF" type="radio" name="gender" />
-            <label for="GenderInputF">Female</label>
+            <input class="cursor-pointer" id="GenderInputF" type="radio" name="gender" />
+            <label class="cursor-pointer" for="GenderInputF">Female</label>
           </div>
         </div>
       </div>
       <!-- Second Form -->
       <div class="form__part">
-        <div class="flex gap-4 items-center">
-          <label for="emailInput">Email</label>
+        <div class="mt-4 flex justify-between items-center">
+          <label class="mr-0.5" for="emailInput">Email*</label>
           <input
             placeholder="example@example.com"
             id="emailInput"
             type="email"
             name="email"
-            class="border bg-[#E8F0FF] py-1 w-72"
+            class="border bg-[#E8F0FF] mr-4 py-1.5 w-full"
           />
           <span id="emailError"></span>
-          <label for="phoneInput">Phone number</label>
+          <label class="text-nowrap mr-0.5" for="phoneInput">Phone number*</label>
           <input
             placeholder="0700000000"
             id="phoneInput"
             type="text"
             name="phone"
-            class="border bg-[#E8F0FF] py-1 w-72"
+            class="border bg-[#E8F0FF] py-1.5 w-full"
           />
           <span id="phoneError"></span>
         </div>
         <div class="mt-4">
-          <label for="linkedlnInput">Linkedln</label>
+          <label for="linkedlnInput">Linkedln*</label>
           <input
             placeholder="linkedin.com/in/mohamed_amine"
             id="linkedlnInput"
             type="text"
             name="linkedln"
-            class="border bg-[#E8F0FF] py-1 w-full"
+            class="border bg-[#E8F0FF] py-1.5 w-full"
           />
           <span id="linkedlnError"></span>
-          <label for="githubInput">Github</label>
+          <label for="githubInput">Github*</label>
           <input
             placeholder="https://github.com/mohamine32"
             id="githubInput"
             type="text"
             name="Github"
-            class="border bg-[#E8F0FF] py-1 w-full"
+            class="border bg-[#E8F0FF] py-1.5 w-full"
           />
           <span id="githubError"></span>
           <div id="links">
-          <!-- More links -->
-        </div>
+            <!-- More links -->
+          </div>
         </div>
         <div class="flex justify-center">
           <button
             id="addButtonLinks"
-            class="mt-8 mb-8 py-1 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center"
+            class="mt-8 mb-8 py-1.5 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center"
           >
             +
           </button>
@@ -368,7 +374,7 @@
       </div>
       <!-- Third Form -->
       <div class="form__part">
-        <h3 class="mb-4">Description</h3>
+        <h3 class="mb-4 cursor-default">Description</h3>
         <div class="bg-[#E8F0FF]" id="editor">
           <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
           <script>
@@ -378,95 +384,130 @@
           </script>
           <span id="quillError"></span>
         </div>
-        <h3 class="mt-4 mb-4">Technical Skills</h3>
+        <h3 class="mt-4 mb-4 cursor-default">Technical Skills</h3>
         <div class="flex flex-col gap-2">
-          <input id="techLangInput" type="text" name="technical_languages" placeholder="Languages" class="border bg-[#E8F0FF] py-1 w-full">
-          <input id="techFrWInput" type="text" name="technical_frameworks" placeholder="Frameworks" class="border bg-[#E8F0FF] py-1 w-full">
-          <input id="techDBInput" type="text" name="technical_databases" placeholder="DataBases" class="border bg-[#E8F0FF] py-1 w-full">
-          <input id="techToolsInput" type="text" name="technical_tools" placeholder="Tools" class="border bg-[#E8F0FF] py-1 w-full">
-          <input id="MethInput" type="text" name="Mhethodologies" placeholder="Methodologies" class="border bg-[#E8F0FF] py-1 w-full">
+          <input
+            id="techLangInput"
+            type="text"
+            name="technical_languages"
+            placeholder="Languages"
+            class="border bg-[#E8F0FF] py-1.5 w-full"
+          />
+          <input
+            id="techFrWInput"
+            type="text"
+            name="technical_frameworks"
+            placeholder="Frameworks"
+            class="border bg-[#E8F0FF] py-1.5 w-full"
+          />
+          <input
+            id="techDBInput"
+            type="text"
+            name="technical_databases"
+            placeholder="DataBases"
+            class="border bg-[#E8F0FF] py-1.5 w-full"
+          />
+          <input
+            id="techToolsInput"
+            type="text"
+            name="technical_tools"
+            placeholder="Tools"
+            class="border bg-[#E8F0FF] py-1.5 w-full"
+          />
+          <input
+            id="MethInput"
+            type="text"
+            name="Mhethodologies"
+            placeholder="Methodologies"
+            class="border bg-[#E8F0FF] py-1.5 w-full"
+          />
         </div>
       </div>
       <!-- Form 4 -->
       <div class="form__part">
-        <h2 class="font-bold mb-8">Professional Experience</h2>
+        <h2 class="font-bold mb-2 mt-4 cursor-default">Professional Experience</h2>
         <div>
-          <div class="flex items-center gap-16">
-            <div>
-              <label for="exTitleInput">Title</label>
+          <div class="flex items-center">
+            <div class="w-full">
+              <label for="exTitleInput">Title</label><br>
               <input
                 placeholder="Experience"
                 id="exTitleInput"
                 type="text"
                 name="Professional_Experience"
-                class="border py-1 bg-[#E8F0FF] w-56"
-              />
+                class="relative border py-1.5 bg-[#E8F0FF] w-64"
+              /><br>
               <span id="exTitleError"></span>
             </div>
-            <!-- Date Form: XXXX-XXXX -->
-            <div>
-              <label for="exDateInput">Date</label>
+            <!-- Date Form: Month XXXX- MonthXXXX -->
+            <div class="w-full">
+              <label for="exDateInput">Date</label><br>
               <input
-                placeholder="XXXX-XXXX"
+                placeholder="Sept 2024- May 2025"
                 id="exDateInput"
                 type="text"
                 name="DateOfProfessionalExperience"
-                class="border py-1 bg-[#E8F0FF] w-56"
-              />
+                class="border py-1.5 bg-[#E8F0FF] w-64"
+              /><br>
               <span id="exDateError"></span>
             </div>
-            <div>
-              <label for="exPosteInput">Poste</label>
+            <div class="w-full">
+              <label for="exPosteInput">Poste</label><br>
               <input
                 placeholder="team leader"
                 id="exPosteInput"
                 type="text"
                 name="PosteOfProfessionalExperience"
-                class="border py-1 bg-[#E8F0FF] w-56"
-              />
+                class="mr-4 border py-1.5 bg-[#E8F0FF] w-full"
+              /><br>
               <span id="exPosteError"></span>
             </div>
           </div>
           <div class="mt-4">
             <label for="mission">Main Missions</label>
             <textarea
+              placeholder="Développeur full stack en formation..."
               name="mission"
               id="mission"
-              class="border w-full h-16 block"
+              class="border w-full h-24 bg-[#E8F0FF]"
             ></textarea>
             <span id="missionError"></span>
           </div>
-          <div class="flex justify-center">
+          <div id="NewEx">
+            <!-- More Experience -->
+          </div>
+        </div>
+        <div class="flex justify-center">
             <button
               id="addButtonEX"
-              class="mt-8 mb-8 py-1 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center"
+              class="mt-8 mb-8 py-1.5 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center"
             >
               +
             </button>
           </div>
-        </div>
-        <h2 class="font-bold mb-8">Completed Projects</h2>
+        <h2 class="font-bold mb-2 cursor-default">Completed Projects</h2>
         <div>
-          <div class="flex items-center gap-16">
-            <div>
+          <div>
+          <div class="flex items-center gap-8">
+            <div class="w-full">
               <label for="proTitleInput">Title</label>
               <input
-                placeholder="Project"
+                placeholder="Struo-Cv"
                 id="proTitleInput"
                 type="text"
                 name="Completed_Project"
-                class="border py-1 bg-[#E8F0FF] w-56"
+                class="border py-1.5 bg-[#E8F0FF] w-full"
               />
               <span id="proTitleError"></span>
             </div>
-            <div>
+            <div class="w-full">
               <label for="ProDateInput">Date</label>
               <input
-                placeholder="XXXX"
+                placeholder="Nov 2025"
                 id="ProDateInput"
                 type="text"
                 name="DateOfCompletedProject"
-                class="border py-1 bg-[#E8F0FF] w-56"
+                class="border py-1.5 bg-[#E8F0FF] w-full"
               />
               <span id="yearError"></span>
             </div>
@@ -474,16 +515,21 @@
           <div class="mt-4">
             <label for="descriptionOfProject">Description</label>
             <textarea
+              placeholder="Online CV Generator..."
               name="descriptionOfProject"
               id="descriptionOfProject"
-              class="border w-full h-16 block"
+              class="border w-full h-16 bg-[#E8F0FF]"
             ></textarea>
             <span id="descriptionOfProjectError"></span>
           </div>
+        </div>
+        <div id="NewPro">
+          <!-- More Project -->
+        </div>
           <div class="flex justify-center">
             <button
               id="addButtonProject"
-              class="mt-8 mb-8 py-1 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center"
+              class="mt-8 mb-8 py-1.5 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center"
             >
               +
             </button>
@@ -492,65 +538,68 @@
       </div>
       <!-- Fifth Form -->
       <div class="form__part">
-        <h2 class="font-bold mb-8">Eductaion/Formation</h2>
-        <div class="flex items-center gap-16">
-          <div>
+        <h2 class="mb-2">Eductaion/Formation</h2>
+        <div class="flex items-center gap-8">
+          <div class="w-full">
             <label for="schoolInput">School</label>
             <input
               placeholder="Tarik Ben Ziyad"
               id="schoolInput"
               name="School"
               type="text"
-              class="border py-1 bg-[#E8F0FF] w-56"
+              class="border py-1.5 bg-[#E8F0FF] w-full"
             />
             <span id="schoolError"></span>
           </div>
-          <div>
+          <div class="w-full">
             <label for="cityInputSch">City</label>
             <input
               placeholder="Khenifra"
               id="cityInputSch"
               type="text"
               name="SchoolCity"
-              class="border py-1 bg-[#E8F0FF] w-56"
+              class="border py-1.5 bg-[#E8F0FF] w-full"
             />
             <span id="cityErrorSch"></span>
           </div>
-          <!-- XXXX-XXXX -->
-          <div>
+          <!-- Month XXXX-MonthXXXX -->
+          <div class="w-full">
             <label for="schDateInput">Date</label>
             <input
-              placeholder="XXXX-XXXX"
+              placeholder="Sept 2024- Jun 2025"
               id="schDateInput"
               type="text"
               name="SchoolDate"
-              class="border py-1 bg-[#E8F0FF] w-56"
+              class="border py-1.5 bg-[#E8F0FF] w-full"
             />
             <span id="schDateError"></span>
           </div>
         </div>
+        <div id="NewSchool">
+            <!-- More Schools -->
+          </div>
         <div class="flex justify-center">
           <button
-            id="addButtonProject"
-            class="mt-8 mb-8 py-1 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center"
+            id="addSchool"
+            class="mt-8 mb-8 py-1.5 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center"
           >
             +
           </button>
         </div>
-        <h2 class="font-bold mb-8">Certifications</h2>
-        <div class="flex items-center gap-16">
-          <div>
+        <h2 class="font-bold mb-2">Certifications</h2>
+        <div class="flex items-center gap-8">
+          <div class="w-full">
             <label for="certInput">Certification Name</label>
             <input
               placeholder="CCNA"
               id="certInput"
               type="text"
               name="Certification"
-              class="border py-1 bg-[#E8F0FF] w-56"
+              class="border py-1.5 bg-[#E8F0FF] w-full"
             />
             <span id="certError"></span>
           </div>
-          <div>
+          <div class="w-full">
             <!-- an et demi/ 1.4 an / 10 ans / 4 mois / 2 mois -->
             <label for="durationInput">Duration</label>
             <input
@@ -558,7 +607,7 @@
               id="durationInput"
               type="text"
               name="Duration"
-              class="border py-1 bg-[#E8F0FF] w-56"
+              class="border py-1.5 bg-[#E8F0FF] w-full"
             />
             <span id="durationError"></span>
           </div>
@@ -570,15 +619,18 @@
               id="certDateInput"
               type="number"
               name="certDate"
-              class="border py-1 bg-[#E8F0FF] w-56"
+              class="border py-1.5 bg-[#E8F0FF] w-16"
             />
             <span id="yearError"></span>
           </div>
         </div>
+        <div id="NewCert">
+
+        </div>
         <div class="flex justify-center">
           <button
-            id="addButtonProject"
-            class="mt-8 mb-8 py-1 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center"
+            id="addCert"
+            class="mt-8 mb-8 py-1.5 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center"
           >
             +
           </button>
@@ -586,13 +638,13 @@
       </div>
       <!-- Sixth Form -->
       <div class="form__part">
-        <h2>Tranversales Skills</h2>
+        <h2 class="cursor-default">Tranversales Skills</h2>
         <div>
           <input
             type="text"
             name="TranversalesSkills"
             placeholder="Teamwork, creativity, adaptability, problem-solving..."
-            class="border bg-[#E8F0FF] py-1 w-full"
+            class="border bg-[#E8F0FF] py-1.5 w-full"
           />
           <span id="TranversalesSkillsError"></span>
         </div>
@@ -603,45 +655,48 @@
             id="hobbyInput"
             type="text"
             name="Hobbies"
-            class="border bg-[#E8F0FF] py-1 w-full"
+            class="border bg-[#E8F0FF] py-1.5 w-full"
           />
         </div>
-        <div class="mt-4 flex gap-16">
+        <div class="mt-4 flex gap-8">
           <div>
             <label for="langInput">Languages</label>
             <input
-              placeholder="Arabic/English/Frech..."
+              placeholder="Arabic"
               id="langInput"
               type="text"
               name="langSkills"
-              class="border py-1 bg-[#E8F0FF] w-56"
+              class="border py-1.5 bg-[#E8F0FF] w-56"
             />
             <span id="###"></span>
           </div>
-          <div>
+          <div class="w-full">
             <label for="levelInput">level</label>
             <input
-              placeholder="maternelle/A1/C2/beginner..."
+              placeholder="maternelle"
               id="levelInput"
               type="text"
               name="level"
-              class="border py-1 bg-[#E8F0FF] w-56"
+              class="border py-1.5 bg-[#E8F0FF] w-full"
             />
             <span id="sizeError"></span>
           </div>
         </div>
+        <div id="NewLang">
+
+        </div>
         <div class="flex justify-center">
           <button
-            id="addButtonLang"
-            class="mt-8 mb-8 py-1 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center"
+            id="addLang"
+            class="mt-8 mb-8 py-1.5 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center"
           >
             Add Languages
           </button>
         </div>
       </div>
       <!-- Select Template Form -->
-      <div class="form__part"">
-        <h3 class="font-bold mb-8">Select Template</h3>
+      <div class="form__part">
+        <h3 class="font-bold mb-2">Select Template</h3>
         <div class="flex justify-center gap-4">
           <div class="flex flex-col gap-4">
             <label class="self-center" for="firstCV">Name</label>
@@ -650,22 +705,33 @@
           </div>
           <div class="flex flex-col gap-4">
             <label class="self-center" for="SecondCv">Name</label>
-            <img src="./assets/images/templates/cv1.jpg" alt="cv2" />
+            <img src="./assets/images/templates/cv2.jpg" alt="cv2" />
             <input type="radio" name="template" id="SecondCv" />
           </div>
         </div>
+        <button
+            id="downloadButton"
+            type="submit"
+            class="border w-[80%] rounded-lg py-1.5 px-12 mt-8 ml-[80px] mb-8 duration-700 cursor-pointer hover:scale-110  hover:bg-[#91E61A] text-center"
+          >
+            Download
+          </button>
       </div>
       <div class="flex justify-between">
         <div>
-          <button type="submit" id="prevBtn"
-            class="d-none border rounded-lg mt-4 px-4 py-1 cursor-pointer hover:bg-[#5C61FF] hover:text-[#E6E6FF]"
+          <button
+            type="submit"
+            id="prevBtn"
+            class="d-none border rounded-lg mt-4 px-4 py-1.5 cursor-pointer hover:bg-[#5C61FF] hover:text-[#E6E6FF]"
           >
             Previous
           </button>
         </div>
         <div>
-          <button type="submit" id="nextBtn"
-            class="border rounded-lg mt-4 px-4 py-1 cursor-pointer hover:bg-[#5C61FF] hover:text-[#E6E6FF]"
+          <button
+            type="submit"
+            id="nextBtn"
+            class="border rounded-lg mt-4 px-4 py-1.5 cursor-pointer hover:bg-[#5C61FF] hover:text-[#E6E6FF]"
           >
             Next
           </button>
@@ -673,7 +739,18 @@
       </div>
     </form>
     <!-- Buy me a coffee button -->
-    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="shr946" data-description="Support me on Buy me a coffee!" data-message="Thank you for stopping by! ☕ If you like my work, you can support me by buying a coffee." data-color="#5F7FFF" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+    <script
+      data-name="BMC-Widget"
+      data-cfasync="false"
+      src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+      data-id="shr946"
+      data-description="Support me on Buy me a coffee!"
+      data-message="Thank you for stopping by! ☕ If you like my work, you can support me by buying a coffee."
+      data-color="#5F7FFF"
+      data-position="Right"
+      data-x_margin="18"
+      data-y_margin="18"
+    ></script>
     <!-- footer -->
     <footer class="bg-[#5C61FF] text-[#E6E6FF] mt-32">
       <div class="flex">
@@ -695,7 +772,7 @@
           <div class="ml-4 flex gap-24">
             <div class="flex flex-col gap-4">
               <div
-                class="flex px-5 py-1 shadow-xl/20 bg-[#5154FF] rounded-md cursor-pointer hover:bg-[#D4D5FF] hover:text-[#00039F] w-[300px]"
+                class="flex px-5 py-1.5 shadow-xl/20 bg-[#5154FF] rounded-md cursor-pointer hover:bg-[#D4D5FF] hover:text-[#00039F] w-[300px]"
               >
                 <i class="fa-brands fa-x-twitter self-center mr-4 ml-4"></i>
                 <div>
@@ -708,7 +785,7 @@
                 </div>
               </div>
               <div
-                class="flex px-5 py-1 shadow-xl/20 bg-[#5154FF] rounded-md cursor-pointer hover:bg-[#D4D5FF] hover:text-[#00039F] w-[300px]"
+                class="flex px-5 py-1.5 shadow-xl/20 bg-[#5154FF] rounded-md cursor-pointer hover:bg-[#D4D5FF] hover:text-[#00039F] w-[300px]"
               >
                 <i class="fa-brands fa-telegram self-center mr-4 ml-4"></i>
                 <div>
@@ -721,7 +798,7 @@
             </div>
             <div class="ml flex flex-col gap-4">
               <div
-                class="flex px-5 py-1 shadow-xl/20 bg-[#5154FF] rounded-md cursor-pointer hover:bg-[#D4D5FF] hover:text-[#00039F] w-[300px]"
+                class="flex px-5 py-1.5 shadow-xl/20 bg-[#5154FF] rounded-md cursor-pointer hover:bg-[#D4D5FF] hover:text-[#00039F] w-[300px]"
               >
                 <i
                   class="fa fa-coffee self-center mr-4 ml-4"
@@ -729,11 +806,13 @@
                 ></i>
                 <div>
                   <a href="buymeacoffee.com/shr946"><p>Buy Me a Coffee</p></a>
-                  <a href="buymeacoffee.com/shr946"><p class="text-[14px]">One-time support</p></a>
+                  <a href="buymeacoffee.com/shr946"
+                    ><p class="text-[14px]">One-time support</p></a
+                  >
                 </div>
               </div>
               <div
-                class="flex px-5 py-1 shadow-xl/20 bg-[#5154FF] rounded-md cursor-pointer hover:bg-[#D4D5FF] hover:text-[#00039F] w-[300px]"
+                class="flex px-5 py-1.5 shadow-xl/20 bg-[#5154FF] rounded-md cursor-pointer hover:bg-[#D4D5FF] hover:text-[#00039F] w-[300px]"
               >
                 <i class="fa-regular fa-envelope self-center mr-4 ml-4"></i>
                 <div>
