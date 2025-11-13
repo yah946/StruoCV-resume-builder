@@ -123,9 +123,13 @@
       <div class="form__part">
         <div class="mt-4 flex gap-8">
           <!-- Add photo -->
-          <img title="click to change image" class="absolute h-36 w-36 hidden" id="profileImg">
+          <img
+            title="click to change image"
+            class="absolute h-36 w-36 hidden"
+            id="profileImg"
+          />
           <input
-            style="display:none;"
+            style="display: none"
             type="file"
             id="imageUpload"
             accept="image/*"
@@ -159,6 +163,16 @@
               <span id="LastNameError"></span>
             </div>
           </div>
+        </div>
+        <div class="w-full mt-4">
+          <label for="titleInput">Title</label>
+          <input
+            id="titleInput"
+            class="border bg-[#E8F0FF] py-1.5 w-full"
+            type="text"
+            placeholder="Développeur Full stack"
+          />
+          <span id="titleError"></span>
         </div>
         <div>
           <div class="w-full mt-8 flex items-center">
@@ -202,7 +216,7 @@
             </select>
             <label class="mr-1" for="month">Month</label>
             <select
-              id="month"
+              id="Month"
               name="Month"
               class="border mr-3 bg-[#E8F0FF] py-2 w-40"
             >
@@ -221,7 +235,7 @@
             </select>
             <label class="mr-1" for="year">Year</label>
             <select
-              id="year"
+              id="Year"
               name="Year"
               class="border mr-3 bg-[#E8F0FF] py-2 w-20"
             >
@@ -257,7 +271,9 @@
               <option value="thirtieth">2023</option>
               <option value="thirty-first">2024</option>
             </select>
-            <label class="text-nowrap mr-1" for="BirthPlaceInput">Place of birth</label>
+            <label class="text-nowrap mr-1" for="BirthPlaceInput"
+              >Place of birth</label
+            >
             <input
               placeholder="Khenifra"
               id="BirthPlaceInput"
@@ -309,11 +325,21 @@
         <div class="mt-4 cursor-default">
           <h3>Gender</h3>
           <div>
-            <input class="cursor-pointer" id="GenderInputM" type="radio" name="gender"/>
+            <input
+              class="cursor-pointer"
+              id="GenderInputM"
+              type="radio"
+              name="gender"
+            />
             <label class="cursor-pointer" for="GenderInputM">Male</label>
           </div>
           <div>
-            <input class="cursor-pointer" id="GenderInputF" type="radio" name="gender" />
+            <input
+              class="cursor-pointer"
+              id="GenderInputF"
+              type="radio"
+              name="gender"
+            />
             <label class="cursor-pointer" for="GenderInputF">Female</label>
           </div>
         </div>
@@ -326,11 +352,13 @@
             placeholder="example@example.com"
             id="emailInput"
             type="email"
-            name="email"
+            name="emailInput"
             class="border bg-[#E8F0FF] mr-4 py-1.5 w-full"
           />
           <span id="emailError"></span>
-          <label class="text-nowrap mr-0.5" for="phoneInput">Phone number*</label>
+          <label class="text-nowrap mr-0.5" for="phoneInput"
+            >Phone number*</label
+          >
           <input
             placeholder="0700000000"
             id="phoneInput"
@@ -425,41 +453,43 @@
       </div>
       <!-- Form 4 -->
       <div class="form__part">
-        <h2 class="font-bold mb-2 mt-4 cursor-default">Professional Experience</h2>
+        <h2 class="font-bold mb-2 mt-4 cursor-default">
+          Professional Experience
+        </h2>
         <div>
           <div class="flex items-center">
             <div class="w-full">
-              <label for="exTitleInput">Title</label><br>
+              <label for="exTitleInput">Title</label><br />
               <input
                 placeholder="Experience"
                 id="exTitleInput"
                 type="text"
                 name="Professional_Experience"
                 class="relative border py-1.5 bg-[#E8F0FF] w-64"
-              /><br>
+              /><br />
               <span id="exTitleError"></span>
             </div>
             <!-- Date Form: Month XXXX- MonthXXXX -->
             <div class="w-full">
-              <label for="exDateInput">Date</label><br>
+              <label for="exDateInput">Date</label><br />
               <input
                 placeholder="Sept 2024- May 2025"
                 id="exDateInput"
                 type="text"
                 name="DateOfProfessionalExperience"
                 class="border py-1.5 bg-[#E8F0FF] w-64"
-              /><br>
+              /><br />
               <span id="exDateError"></span>
             </div>
             <div class="w-full">
-              <label for="exPosteInput">Poste</label><br>
+              <label for="exPosteInput">Poste</label><br />
               <input
                 placeholder="team leader"
                 id="exPosteInput"
                 type="text"
                 name="PosteOfProfessionalExperience"
                 class="mr-4 border py-1.5 bg-[#E8F0FF] w-full"
-              /><br>
+              /><br />
               <span id="exPosteError"></span>
             </div>
           </div>
@@ -478,54 +508,54 @@
           </div>
         </div>
         <div class="flex justify-center">
-            <button
-              id="addButtonEX"
-              class="mt-8 mb-8 py-1.5 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center"
-            >
-              +
-            </button>
-          </div>
+          <button
+            id="addButtonEX"
+            class="mt-8 mb-8 py-1.5 cursor-pointer bg-[#B8B8FF] rounded-lg border duration-700 hover:scale-110 w-[90%] text-center"
+          >
+            +
+          </button>
+        </div>
         <h2 class="font-bold mb-2 cursor-default">Completed Projects</h2>
         <div>
           <div>
-          <div class="flex items-center gap-8">
-            <div class="w-full">
-              <label for="proTitleInput">Title</label>
-              <input
-                placeholder="Struo-Cv"
-                id="proTitleInput"
-                type="text"
-                name="Completed_Project"
-                class="border py-1.5 bg-[#E8F0FF] w-full"
-              />
-              <span id="proTitleError"></span>
+            <div class="flex items-center gap-8">
+              <div class="w-full">
+                <label for="proTitleInput">Title</label>
+                <input
+                  placeholder="Struo-Cv"
+                  id="proTitleInput"
+                  type="text"
+                  name="Completed_Project"
+                  class="border py-1.5 bg-[#E8F0FF] w-full"
+                />
+                <span id="proTitleError"></span>
+              </div>
+              <div class="w-full">
+                <label for="ProDateInput">Date</label>
+                <input
+                  placeholder="Nov 2025"
+                  id="ProDateInput"
+                  type="text"
+                  name="DateOfCompletedProject"
+                  class="border py-1.5 bg-[#E8F0FF] w-full"
+                />
+                <span id="yearError"></span>
+              </div>
             </div>
-            <div class="w-full">
-              <label for="ProDateInput">Date</label>
-              <input
-                placeholder="Nov 2025"
-                id="ProDateInput"
-                type="text"
-                name="DateOfCompletedProject"
-                class="border py-1.5 bg-[#E8F0FF] w-full"
-              />
-              <span id="yearError"></span>
+            <div class="mt-4">
+              <label for="descriptionOfProject">Description</label>
+              <textarea
+                placeholder="Online CV Generator..."
+                name="descriptionOfProject"
+                id="descriptionOfProject"
+                class="border w-full h-16 bg-[#E8F0FF]"
+              ></textarea>
+              <span id="descriptionOfProjectError"></span>
             </div>
           </div>
-          <div class="mt-4">
-            <label for="descriptionOfProject">Description</label>
-            <textarea
-              placeholder="Online CV Generator..."
-              name="descriptionOfProject"
-              id="descriptionOfProject"
-              class="border w-full h-16 bg-[#E8F0FF]"
-            ></textarea>
-            <span id="descriptionOfProjectError"></span>
+          <div id="NewPro">
+            <!-- More Project -->
           </div>
-        </div>
-        <div id="NewPro">
-          <!-- More Project -->
-        </div>
           <div class="flex justify-center">
             <button
               id="addButtonProject"
@@ -576,8 +606,8 @@
           </div>
         </div>
         <div id="NewSchool">
-            <!-- More Schools -->
-          </div>
+          <!-- More Schools -->
+        </div>
         <div class="flex justify-center">
           <button
             id="addSchool"
@@ -624,9 +654,7 @@
             <span id="yearError"></span>
           </div>
         </div>
-        <div id="NewCert">
-
-        </div>
+        <div id="NewCert"></div>
         <div class="flex justify-center">
           <button
             id="addCert"
@@ -641,6 +669,7 @@
         <h2 class="cursor-default">Tranversales Skills</h2>
         <div>
           <input
+            id="TranversalesSkills"
             type="text"
             name="TranversalesSkills"
             placeholder="Teamwork, creativity, adaptability, problem-solving..."
@@ -682,9 +711,7 @@
             <span id="sizeError"></span>
           </div>
         </div>
-        <div id="NewLang">
-
-        </div>
+        <div id="NewLang"></div>
         <div class="flex justify-center">
           <button
             id="addLang"
@@ -709,20 +736,23 @@
             <input type="radio" name="template" id="SecondCv" />
           </div>
         </div>
-        <button
+                <div>
+          <button
             id="downloadButton"
             type="submit"
-            class="border w-[80%] rounded-lg py-1.5 px-12 mt-8 ml-[80px] mb-8 duration-700 cursor-pointer hover:scale-110  hover:bg-[#91E61A] text-center"
+            class="border w-[80%] rounded-lg py-1.5 px-12 mt-8 ml-20 mb-8 duration-700 cursor-pointer hover:scale-110 hover:bg-[#91E61A] text-center"
           >
             Download
           </button>
+        </div>
+      </div>
       </div>
       <div class="flex justify-between">
         <div>
           <button
             type="submit"
             id="prevBtn"
-            class="d-none border rounded-lg mt-4 px-4 py-1.5 cursor-pointer hover:bg-[#5C61FF] hover:text-[#E6E6FF]"
+            class="border rounded-lg mt-4 px-4 py-1.5 cursor-not-allowed hover:bg-[#5C61FF] hover:text-[#E6E6FF]"
           >
             Previous
           </button>
@@ -767,7 +797,7 @@
             a structured and personalized resume.
           </p>
         </div>
-        <div class="ml-8 w-[100%]">
+        <div class="ml-8 w-full">
           <h2 class="text-lg font-bold mb-4 mt-1">Connect With Us</h2>
           <div class="ml-4 flex gap-24">
             <div class="flex flex-col gap-4">

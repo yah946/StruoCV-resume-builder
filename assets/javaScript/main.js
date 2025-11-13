@@ -7,7 +7,10 @@ let prevBtn = document.getElementById("prevBtn");
 let form = document.getElementById("form");
 let counter = 0;
 let formPart = document.querySelectorAll(".form__part");
-let coffe = document.querySelector("#cafe");
+const downloadBtn = document.getElementById("downloadButton");
+
+//Global variable
+let base64base;
 
 function UnshowForms() {
   for (i = 1; i < formPart.length; i++) {
@@ -15,42 +18,19 @@ function UnshowForms() {
   }
 }
 UnshowForms();
-
-function updateStatus() {
-    nextBtn.addEventListener('click',function(e){
-        e.preventDefault();
-        if(counter>=0 && counter<6){
-            formPart[counter].style.display='none';
-            counter++;
-            formPart[counter].style.display='block';
-            progressInd.style.width=progressWidth[counter];
-            circles[counter].className='active circle';
-        }
-    })
-        prevBtn.addEventListener('click',function(e){
-        e.preventDefault();
-        if(counter>0 && counter<=7){
-            formPart[counter].style.display='none';
-            counter--;
-            formPart[counter].style.display='block';
-            progressInd.style.width=progressWidth[counter];
-            circles[counter+1].className='circle';
-        }
-    })
-
-}
-updateStatus();
-
 const NameInput = document.getElementById("NameInput");
 const LastInput = document.getElementById("LastInput");
 const FirstNameError = document.getElementById("FirstNameError");
 const LastNameError = document.getElementById("LastNameError");
+const titleInput = document.getElementById("titleInput");
+const titleError = document.getElementById("titleError");
 const BirthPlaceInput = document.getElementById("BirthPlaceInput");
 const BirthPlaceError = document.getElementById("BirthPlaceError");
 const NationalityInput = document.getElementById("NationalityInput");
 const NationalityError = document.getElementById("NationalityError");
 const cityInput = document.getElementById("cityInput");
 const cityError = document.getElementById("cityError");
+const statusInput = document.getElementById("statusInput");
 const emailInput = document.getElementById("emailInput");
 const emailError = document.getElementById("emailError");
 const phoneInput = document.getElementById("phoneInput");
@@ -65,28 +45,28 @@ const exPosteInput = document.getElementById("exPosteInput");
 const exPosteError = document.getElementById("exPosteError");
 const exDateInput = document.getElementById("exDateInput");
 const exDateError = document.getElementById("exDateError");
-const proTitleInput = document.getElementById('proTitleInput');
-const proTitleError = document.getElementById('proTitleError');
-const schoolInput = document.getElementById('schoolInput');
-const cityInputSch = document.getElementById('cityInputSch');
-const schoolError = document.getElementById('schoolError');
-const cityErrorSch = document.getElementById('cityErrorSch');
-const schDateInput = document.getElementById('schDateInput');
-const schDateError = document.getElementById('schDateError');
-const certInput = document.getElementById('certInput');
-const certError = document.getElementById('certError');
-const mission = document.getElementById('mission');
-const missionError = document.getElementById('missionError');
-const desProject = document.getElementById('descriptionOfProject');
-const desProjectError = document.getElementById('descriptionOfProjectError');
-const durationInput = document.getElementById('durationInput');
-const durationError = document.getElementById('durationError');
+const proTitleInput = document.getElementById("proTitleInput");
+const proTitleError = document.getElementById("proTitleError");
+const schoolInput = document.getElementById("schoolInput");
+const cityInputSch = document.getElementById("cityInputSch");
+const schoolError = document.getElementById("schoolError");
+const cityErrorSch = document.getElementById("cityErrorSch");
+const schDateInput = document.getElementById("schDateInput");
+const schDateError = document.getElementById("schDateError");
+const certInput = document.getElementById("certInput");
+const certError = document.getElementById("certError");
+const mission = document.getElementById("mission");
+const missionError = document.getElementById("missionError");
+const desProject = document.getElementById("descriptionOfProject");
+const desProjectError = document.getElementById("descriptionOfProjectError");
+const durationInput = document.getElementById("durationInput");
+const durationError = document.getElementById("durationError");
 
 let patterns = {
   text: /^[A-Za-z\s{1}]{3,30}$/,
   email: /^[\w.-]{3,30}@[\w.-]{5,10}\.[a-zA-Z]{2,5}$/,
   phone: /^0{1}[6-7][0-9]{8}$/,
-  link:/^(?:https?:\/\/)?(?:www\.)?[\w.-]{2,}\.[a-z]{2,}\/[A-Za-z0-9._-]{3,15}$/i,
+  link: /^(?:https?:\/\/)?(?:www\.)?[\w.-]{2,}\.[a-z]{2,}\/[A-Za-z0-9._-]{3,15}$/i,
   date: /^[0-9]{4}\-[0-9]{4}/,
   description: /^[a-zA-Z0-9_]{20,1000}/,
 };
@@ -94,17 +74,19 @@ function textVerification(input, errorSpan) {
   if (patterns.text.test(input.value.trim())) {
     input.style.border = "2px #5C9310 solid";
     errorSpan.innerHTML = "";
+    return true;
   } else {
     errorSpan.textContent = "Error";
     errorSpan.style.color = "#D10007";
     errorSpan.style.fontSize = "12px";
-    input.style.border="2px #d10007 solid"
+    input.style.border = "2px #d10007 solid";
+    return false;
   }
 }
-function emailVerification(input, errorSpan){
-    if (patterns.email.test(input.value.trim())) {
+function emailVerification(input, errorSpan) {
+  if (patterns.email.test(input.value.trim())) {
     input.style.border = "2px #5C9310 solid";
-    errorSpan.innerHTML = "";
+    errorSpan.textContent = "";
   } else {
     errorSpan.innerHTML = "Please enter a valid email address.";
     errorSpan.style.color = "#D10007";
@@ -114,8 +96,8 @@ function emailVerification(input, errorSpan){
   }
   return true;
 }
-function phoneVerification(input, errorSpan){
-    if (patterns.phone.test(input.value.trim())) {
+function phoneVerification(input, errorSpan) {
+  if (patterns.phone.test(input.value.trim())) {
     input.style.border = "2px #5C9310 solid";
     errorSpan.innerHTML = "";
   } else {
@@ -125,8 +107,8 @@ function phoneVerification(input, errorSpan){
     input.style.border = "#D10007 solid 2px";
   }
 }
-function linkVerification(input, errorSpan){
-    if (patterns.link.test(input.value.trim())) {
+function linkVerification(input, errorSpan) {
+  if (patterns.link.test(input.value.trim())) {
     input.style.border = "2px #5C9310 solid";
     errorSpan.innerHTML = "";
   } else {
@@ -136,8 +118,8 @@ function linkVerification(input, errorSpan){
     input.style.border = "#D10007 solid 2px";
   }
 }
-function desVerification(input, errorSpan){
-    if (patterns.description.test(input.value.trim())) {
+function desVerification(input, errorSpan) {
+  if (patterns.description.test(input.value.trim())) {
     input.style.border = "2px #5C9310 solid";
     errorSpan.innerHTML = "";
   } else {
@@ -147,8 +129,8 @@ function desVerification(input, errorSpan){
     input.style.border = "#D10007 solid 2px";
   }
 }
-function dateVerification(input, errorSpan){
-    if (patterns.date.test(input.value.trim())) {
+function dateVerification(input, errorSpan) {
+  if (patterns.date.test(input.value.trim())) {
     input.style.border = "2px #5C9310 solid";
     errorSpan.innerHTML = "";
   } else {
@@ -158,38 +140,55 @@ function dateVerification(input, errorSpan){
     input.style.border = "#D10007 solid 2px";
   }
 }
-function showErrors(){
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        //text Verification
-        textVerification(NameInput, FirstNameError);
-        textVerification(LastInput, LastNameError);
-        // textVerification(BirthPlaceInput,BirthPlaceError);
-        // textVerification(NationalityInput,NationalityError);
-        textVerification(cityInput,cityError);
-        textVerification(exTitleInput,exTitleError);
-        textVerification(exPosteInput,exPosteError);
-        textVerification(proTitleInput,proTitleError);
-        textVerification(schoolInput,schoolError);
-        textVerification(cityInputSch,cityErrorSch);
-        textVerification(certInput,certError);
-        textVerification(durationInput,durationError);
-        //email Verification
-        emailVerification(emailInput,emailError);
-        //phone Verification
-        phoneVerification(phoneInput,phoneError);
-        //link Verification
-        linkVerification(linkedlnInput,linkedlnError);
-        linkVerification(githubInput,githubError);
-        //date Verification XXXX-XXXX
-        dateVerification(exDateInput,exDateError);
-        dateVerification(schDateInput,schDateError);
-        //description Error
-        desVerification(desProject,desProjectError);
-        desVerification(mission,missionError);
-    });
+function updateStatus() {
+  nextBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (counter >= 0 && counter < 6) {
+      formPart[counter].style.display = "none";
+      counter++;
+      formPart[counter].style.display = "block";
+      progressInd.style.width = progressWidth[counter];
+      circles[counter].className = "active circle";
+      collectData();
+    }
+    if (counter == 6) {
+        nextBtn.classList.add("hidden");
+      } else {
+        nextBtn.classList.remove('hidden');
+      }
+      if (counter == 0) {
+        prevBtn.classList.add("cursor-not-allowed");
+        prevBtn.classList.remove("cursor-pointer");
+
+      } else {
+        prevBtn.classList.remove("cursor-not-allowed");
+        prevBtn.classList.add("cursor-pointer");
+      }
+  });
+  prevBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (counter > 0 && counter <= 7) {
+      formPart[counter].style.display = "none";
+      counter--;
+      formPart[counter].style.display = "block";
+      progressInd.style.width = progressWidth[counter];
+      circles[counter + 1].className = "circle";
+    }
+    if (counter == 6) {
+        nextBtn.classList.add("hidden");
+      } else {
+        nextBtn.classList.remove('hidden');
+      }
+      if (counter == 0) {
+        prevBtn.classList.add("cursor-not-allowed");
+        prevBtn.classList.remove("cursor-pointer");
+      } else {
+        prevBtn.classList.remove("cursor-not-allowed");
+        prevBtn.classList.add("cursor-pointer");
+      }
+  });
 }
-showErrors();
+updateStatus();
 
 // import html2pdf from 'html2pdf.js';
 // const content = document.getElementById('template');
@@ -210,11 +209,11 @@ showErrors();
 //         });
 //     })
 
-const addButtonLinks = document.getElementById('addButtonLinks');
-const links = document.getElementById('links');
-addButtonLinks.addEventListener('click',function(e){
+const addButtonLinks = document.getElementById("addButtonLinks");
+const links = document.getElementById("links");
+addButtonLinks.addEventListener("click", function (e) {
   e.preventDefault();
-  links.innerHTML+=`
+  links.innerHTML += `
        <div class="flex justify-between items-center mt-8">
           <label class="text-nowrap mr-0.5" for="emailInput">Website's Name</label>
           <input
@@ -235,14 +234,14 @@ addButtonLinks.addEventListener('click',function(e){
           />
           <span id="phoneError"></span>
         </div>
-  `
-})
+  `;
+});
 
-const addButtonEX = document.getElementById('addButtonEX');
+const addButtonEX = document.getElementById("addButtonEX");
 const NewEx = document.getElementById("NewEx");
-addButtonEX.addEventListener('click',function(e){
+addButtonEX.addEventListener("click", function (e) {
   e.preventDefault();
-  NewEx.innerHTML+=`
+  NewEx.innerHTML += `
        <div class="flex items-center">
             <div class="w-full">
               <label for="exTitleInput">Title</label><br>
@@ -289,13 +288,13 @@ addButtonEX.addEventListener('click',function(e){
             ></textarea>
             <span id="missionError"></span>
           </div>
-  `
-})
-const NewPro = document.getElementById('NewPro');
-const addButtonProject = document.getElementById('addButtonProject');
-addButtonProject.addEventListener('click',function(e){
+  `;
+});
+const NewPro = document.getElementById("NewPro");
+const addButtonProject = document.getElementById("addButtonProject");
+addButtonProject.addEventListener("click", function (e) {
   e.preventDefault();
-  NewPro.innerHTML+=`
+  NewPro.innerHTML += `
   <hr class="mt-4 mb-4">
   <div class="flex items-center gap-8">
             <div class="w-full">
@@ -330,14 +329,14 @@ addButtonProject.addEventListener('click',function(e){
               class="border w-full h-16 bg-[#E8F0FF]"
             ></textarea>
             <span id="descriptionOfProjectError"></span>
-  `
-})
+  `;
+});
 
-const NewSchool = document.getElementById('NewSchool');
-const addSchool = document.getElementById('addSchool');
-addSchool.addEventListener('click',function(e){
+const NewSchool = document.getElementById("NewSchool");
+const addSchool = document.getElementById("addSchool");
+addSchool.addEventListener("click", function (e) {
   e.preventDefault();
-  NewSchool.innerHTML+=`
+  NewSchool.innerHTML += `
   <div class="flex items-center gap-8">
   <div class="w-full">
             <label for="schoolInput">School</label>
@@ -374,14 +373,14 @@ addSchool.addEventListener('click',function(e){
             <span id="schDateError"></span>
           </div>
           </div>
-  `
-})
+  `;
+});
 
-const NewCert = document.getElementById('NewCert');
-const addCert = document.getElementById('addCert');
-addCert.addEventListener('click',function(e){
+const NewCert = document.getElementById("NewCert");
+const addCert = document.getElementById("addCert");
+addCert.addEventListener("click", function (e) {
   e.preventDefault();
-  NewCert.innerHTML+=`
+  NewCert.innerHTML += `
   <div class="flex items-center gap-8">
           <div class="w-full">
             <label for="certInput">Certification Name</label>
@@ -419,14 +418,14 @@ addCert.addEventListener('click',function(e){
             <span id="yearError"></span>
           </div>
         </div>
-  `
-})
+  `;
+});
 
-const NewLang = document.getElementById('NewLang');
-const addLang = document.getElementById('addLang');
-addLang.addEventListener('click',function(e){
+const NewLang = document.getElementById("NewLang");
+const addLang = document.getElementById("addLang");
+addLang.addEventListener("click", function (e) {
   e.preventDefault();
- NewLang.innerHTML+=`
+  NewLang.innerHTML += `
   <div class="mt-4 flex gap-8">
           <div>
             <label for="langInput">Languages</label>
@@ -451,15 +450,111 @@ addLang.addEventListener('click',function(e){
             <span id="sizeError"></span>
           </div>
         </div>
-  `
-})
+  `;
+});
 
-const imageUpload = document.getElementById('imageUpload');
-const profileImg = document.getElementById('profileImg');
-const labelImage = document.querySelector('.labelImage');
+const imageUpload = document.getElementById("imageUpload");
+const profileImg = document.getElementById("profileImg");
+const labelImage = document.querySelector(".labelImage");
 
-imageUpload.onchange = function (){
-  profileImg.src = URL.createObjectURL(imageUpload.files[0]);
-  profileImg.className='absolute h-36 w-36 cursor-pointer';
-  labelImage.style.opacity='0%';
+imageUpload.onchange = function (e) {
+  const file = imageUpload.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function () {
+    base64base = reader.result;
+    profileImg.src = reader.result;
+    profileImg.className = "absolute h-36 w-36 cursor-pointer";
+    labelImage.style.opacity = "0%";
+  };
+  reader.readAsDataURL(file);
+};
+
+const day = document.getElementById("Day");
+const month = document.getElementById("Month");
+const year = document.getElementById("Year");
+const techLangInput = document.getElementById("techLangInput");
+const techFrWInput = document.getElementById("techFrWInput");
+const techDBInput = document.getElementById("techDBInput");
+const techToolsInput = document.getElementById("techToolsInput");
+const MethInput = document.getElementById("MethInput");
+const ProDateInput = document.getElementById("ProDateInput");
+const certDateInput = document.getElementById("certDateInput");
+const langInput = document.getElementById("langInput");
+const levelInput = document.getElementById("levelInput");
+const TranversalesSkills = document.getElementById("TranversalesSkills");
+const hobbyInput = document.getElementById("hobbyInput");
+
+//Save Data
+let dataBase = [];
+function collectData() {
+  let personnelData = {
+    title: titleInput.value,
+    name: {
+      firstname: NameInput.value,
+      lastname: LastInput.value,
+    },
+    Birth: {
+      day: day.value,
+      month: month.value,
+      year: year.value,
+      place: BirthPlaceInput.value,
+    },
+    nationalit: NationalityInput.value,
+    status: statusInput.value,
+    city: cityInput.value,
+  };
+  let contactData = {
+    email: emailInput.value,
+    phone: phoneInput.value,
+    linkedln: linkedlnInput.value,
+    github: githubInput.value,
+  };
+  let technicalSkills = {
+    description: quill.root.innerHTML,
+    language: techLangInput.value,
+    framework: techFrWInput.value,
+    database: techDBInput.value,
+    tools: techToolsInput.value,
+    meth: MethInput.value,
+  };
+  let proExperience = {
+    Title: exTitleInput.value,
+    Post: exPosteInput.value,
+    date: exDateInput.value,
+    mission: mission.value,
+  };
+  let CompletedProjects = {
+    Title: proTitleInput.value,
+    date: ProDateInput.value,
+    Descrption: desProject.value,
+  };
+  let Eductaion = {
+    school: schoolInput.value,
+    city: cityInputSch.value,
+    date: schDateInput.value,
+  };
+  let Certifications = {
+    Name: certInput.value,
+    Duration: durationInput.value,
+    date: certDateInput.vlaue,
+  };
+  let Skills = {
+    tranversalesSkills: TranversalesSkills.value,
+    hobbies: hobbyInput.value,
+    lang: langInput.value,
+    level: levelInput.value,
+  };
+  dataBase.push(
+    personnelData,
+    contactData,
+    technicalSkills,
+    proExperience,
+    CompletedProjects,
+    Eductaion,
+    Certifications,
+    Skills
+  );
+  localStorage.setItem("allInfo", JSON.stringify(dataBase));
+  console.log(localStorage.allInfo);
 }
