@@ -11,7 +11,7 @@
     <!-- <link href="./assets/css/output.css" rel="stylesheet" /> -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- JavaScript's file -->
-    <script defer src="./assets/javaScript/main.js"></script>
+    <script defer src="./assets/javaScript/main.js" ></script>
     <!-- Faviocon -->
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico" />
     <!-- FontAwesome -->
@@ -31,6 +31,8 @@
       href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css"
       rel="stylesheet"
     />
+     <!-- htl2pdf -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Title -->
     <title>Struo-Cv Resume Builder</title>
   </head>
@@ -354,7 +356,7 @@
             type="email"
             name="emailInput"
             class="border bg-[#E8F0FF] mr-4 py-1.5 w-full"
-          />
+          /><br>
           <span id="emailError"></span>
           <label class="text-nowrap mr-0.5" for="phoneInput"
             >Phone number*</label
@@ -405,11 +407,6 @@
         <h3 class="mb-4 cursor-default">Description</h3>
         <div class="bg-[#E8F0FF]" id="editor">
           <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
-          <script>
-            const quill = new Quill("#editor", {
-              theme: "snow",
-            });
-          </script>
           <span id="quillError"></span>
         </div>
         <h3 class="mt-4 mb-4 cursor-default">Technical Skills</h3>
@@ -736,15 +733,92 @@
             <input type="radio" name="template" id="SecondCv" />
           </div>
         </div>
-                <div>
+      </div>
+      <section class="form__part" id="template">
+      <!-- header -->
+      <div>
+        <div>
+          <h1>Développeur Full Stack</h1>
+          <h2>Mohamed Sehrane</h2>
+          <a href="mailto:mohamedsehrane314@gmail.com">mohamedsehrane314@gmail.com</a>
+          <a href="tel:+212630852508">+212 630852508</a>
+          <a href="https://github.com/yah946">github.com/yah946</a>
+          <a href="https://www.linkedin.com/in/mohamed-sehrane-b43801391">linkedin.com/in/mohamed-sehrane</a>
+        </div>
+        <!-- Photo -->
+        <div>
+          <img src="">
+        </div>
+      </div>
+      <!-- body -->
+       <div>
+        <h3>Résumé</h3>
+        <hr>
+        <p>Perspiciatis, aliquam incidunt voluptatem mollitia, distinctio modi optio nam reprehenderit qui doloribus provident obcaecati culpa eaque. Est dignissimos placeat tempora, deleniti consectetur reiciendis esse optio at alias maiores nesciunt nam enim, quasi voluptatem facere accusantium inventore beatae qui? Ex mollitia sit distinctio eaque voluptate ad, adipisci excepturi saepe praesentium eum temporibus quibusdam cupiditate odio non hic est id quod maiores quaerat repellat nostrum et cumque? Voluptatum aliquam, dolor nam eum pariatur quia beatae velit nobis illo vero nisi inventore quidem, at ab? Fugiat repellendus modi accusantium nemo qui fuga officia? Laudantium velit adipisci sequi deleniti, mollitia excepturi aut eligendi possimus sapiente iusto vero at eaque? Vitae odit quia harum molestiae laborum, ipsa ratione repudiandae illum reiciendis ad tempore. Fugit harum cumque inventore ad sed pariatur necessitatibus ea officiis. Ipsam quo pariatur consectetur maxime eos, cupiditate repellendus sed! Ad ut possimus repellendus at quis perspiciatis est, sunt ipsa saepe nulla quae dolores.</p>
+       </div>
+       <div>
+        <h3>Compétences Techniques</h3>
+        <hr>
+        <p>Langages: <span>HTML, CSS, JavaScript, PHP, C++ (POO), Python</span></p>
+        <p>Frameworks: <span>Tailwind CSS, Bootstrap, Laravel, VueJs</span></p>
+        <p>Bases de données: <span>MySQL</span></p>
+        <p>Outils: <span>Git, GitHub, VS Code, Figma, Postman, Trello, Jira, Docker</span></p>
+        <p>Méthodologies: <span>Agile, SCRUM</span></p>
+       </div>
+       <div>
+        <h3>Projets Réalisés</h3>
+        <hr>
+        <div>
+          <p>StruoCV – Resume Builder (2025):</p>
+          <span>HTML, CSS (Tailwind) et JavaScrip</span>
+          <p>Générateur de CV en ligne permettant de créer et télécharger un CV moderne.</p>
+        </div>
+        <div>
+          <p>ATM Simulator (2025):</p>
+          <span>C++</span>
+          <p>Programme C++ simulant un distributeur de billets avec retrait, dépôt etvérification du solde.</p>
+        </div>
+        <div>
+          <p>Gestion Bibliothèque (2025):</p>
+          <span>C</span>
+          <p>Programme C pour gérer une base de livres (ajout, suppression, recherche, tri) avec algorithmes optimisés.</p>
+        </div>
+       </div>
+       <div>
+        <h3>Éducation / Formation</h3>
+        <hr>
+        <div>
+          <div>
+            <p>Shcool</p>
+            <p>ville</p>
+          </div>
+          <div>
+            <p>Date-Date</p>
+          </div>
+        </div>
+       </div>
+       <div>
+        <h3>Résumé</h3>
+        <hr>
+        <p>Travail d’équipe, créativité, adaptabilité, résolution de problèmes, curiosité, rigueur, respect des délais.</p>
+       </div>
+       <div>
+        <h3>Langues</h3>
+        <hr>
+        <p>Français (Professional)</p>
+        <p>Anglais(Notion)</p>
+        <p>Arabe(Maternelle)</p>
+       </div>
+       <div>
           <button
             id="downloadButton"
-            type="submit"
+            type="button"
             class="border w-[80%] rounded-lg py-1.5 px-12 mt-8 ml-20 mb-8 duration-700 cursor-pointer hover:scale-110 hover:bg-[#91E61A] text-center"
           >
             Download
           </button>
         </div>
+      </section>
       </div>
       </div>
       <div class="flex justify-between">

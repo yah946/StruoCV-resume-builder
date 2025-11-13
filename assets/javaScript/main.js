@@ -1,3 +1,4 @@
+// import html2pdf from 'html2pdf.js';
 let steps = document.getElementById("steps");
 let circles = document.querySelectorAll(".circle");
 let progressInd = document.getElementById("ind");
@@ -61,7 +62,10 @@ const desProject = document.getElementById("descriptionOfProject");
 const desProjectError = document.getElementById("descriptionOfProjectError");
 const durationInput = document.getElementById("durationInput");
 const durationError = document.getElementById("durationError");
-
+const quillError = document.getElementById("quillError");
+const quill = new Quill("#editor", {
+  theme: "snow",
+});
 let patterns = {
   text: /^[A-Za-z\s{1}]{3,30}$/,
   email: /^[\w.-]{3,30}@[\w.-]{5,10}\.[a-zA-Z]{2,5}$/,
@@ -87,6 +91,7 @@ function emailVerification(input, errorSpan) {
   if (patterns.email.test(input.value.trim())) {
     input.style.border = "2px #5C9310 solid";
     errorSpan.textContent = "";
+    return true;
   } else {
     errorSpan.innerHTML = "Please enter a valid email address.";
     errorSpan.style.color = "#D10007";
@@ -94,56 +99,84 @@ function emailVerification(input, errorSpan) {
     input.style.border = "#D10007 solid 2px";
     return false;
   }
-  return true;
 }
 function phoneVerification(input, errorSpan) {
   if (patterns.phone.test(input.value.trim())) {
     input.style.border = "2px #5C9310 solid";
     errorSpan.innerHTML = "";
+    return true;
   } else {
     errorSpan.innerHTML = "Please enter a valid mobile number.";
     errorSpan.style.color = "#D10007";
     errorSpan.style.fontSize = "12px";
     input.style.border = "#D10007 solid 2px";
+    return false;
   }
 }
 function linkVerification(input, errorSpan) {
   if (patterns.link.test(input.value.trim())) {
     input.style.border = "2px #5C9310 solid";
     errorSpan.innerHTML = "";
+    return true;
   } else {
     errorSpan.innerHTML = "Incorrect link";
     errorSpan.style.color = "#D10007";
     errorSpan.style.fontSize = "12px";
     input.style.border = "#D10007 solid 2px";
+    return false;
   }
 }
 function desVerification(input, errorSpan) {
   if (patterns.description.test(input.value.trim())) {
-    input.style.border = "2px #5C9310 solid";
     errorSpan.innerHTML = "";
+    input.style.border = "2px #5C9310 solid";
+
+    return true;
   } else {
     errorSpan.innerHTML = "The description must be between 20 to 1000 words";
     errorSpan.style.color = "#D10007";
     errorSpan.style.fontSize = "12px";
     input.style.border = "#D10007 solid 2px";
+    return false;
   }
 }
 function dateVerification(input, errorSpan) {
   if (patterns.date.test(input.value.trim())) {
     input.style.border = "2px #5C9310 solid";
     errorSpan.innerHTML = "";
+    return true;
   } else {
     errorSpan.innerHTML = "Please enter a valid duration";
     errorSpan.style.color = "#D10007";
     errorSpan.style.fontSize = "12px";
     input.style.border = "#D10007 solid 2px";
+    return false;
   }
+}
+function firstForm() {
+  return (
+    textVerification(NameInput, FirstNameError) &&
+    textVerification(LastInput, LastNameError) &&
+    textVerification(titleInput, titleError)
+  );
+}
+function second() {
+  return (
+    emailVerification(emailInput, emailError) &&
+    phoneVerification(phoneInput, phoneError) &&
+    linkVerification(githubInput, githubError) &&
+    linkVerification(linkedlnInput, linkedlnError)
+  );
+}
+function third() {
+  return 
 }
 function updateStatus() {
   nextBtn.addEventListener("click", function (e) {
     e.preventDefault();
-    if (counter >= 0 && counter < 6) {
+    if (!firstForm() && counter == 0) return;
+    if (!second() && counter == 1) return;
+    if (counter >= 0 && counter < 7) {
       formPart[counter].style.display = "none";
       counter++;
       formPart[counter].style.display = "block";
@@ -151,23 +184,22 @@ function updateStatus() {
       circles[counter].className = "active circle";
       collectData();
     }
-    if (counter == 6) {
-        nextBtn.classList.add("hidden");
-      } else {
-        nextBtn.classList.remove('hidden');
-      }
-      if (counter == 0) {
-        prevBtn.classList.add("cursor-not-allowed");
-        prevBtn.classList.remove("cursor-pointer");
-
-      } else {
-        prevBtn.classList.remove("cursor-not-allowed");
-        prevBtn.classList.add("cursor-pointer");
-      }
+    if (counter == 7) {
+      nextBtn.classList.add("hidden");
+    } else {
+      nextBtn.classList.remove("hidden");
+    }
+    if (counter == 0) {
+      prevBtn.classList.add("cursor-not-allowed");
+      prevBtn.classList.remove("cursor-pointer");
+    } else {
+      prevBtn.classList.remove("cursor-not-allowed");
+      prevBtn.classList.add("cursor-pointer");
+    }
   });
   prevBtn.addEventListener("click", function (e) {
     e.preventDefault();
-    if (counter > 0 && counter <= 7) {
+    if (counter > 0 && counter <= 8) {
       formPart[counter].style.display = "none";
       counter--;
       formPart[counter].style.display = "block";
@@ -175,39 +207,37 @@ function updateStatus() {
       circles[counter + 1].className = "circle";
     }
     if (counter == 6) {
-        nextBtn.classList.add("hidden");
-      } else {
-        nextBtn.classList.remove('hidden');
-      }
-      if (counter == 0) {
-        prevBtn.classList.add("cursor-not-allowed");
-        prevBtn.classList.remove("cursor-pointer");
-      } else {
-        prevBtn.classList.remove("cursor-not-allowed");
-        prevBtn.classList.add("cursor-pointer");
-      }
+      nextBtn.classList.add("hidden");
+    } else {
+      nextBtn.classList.remove("hidden");
+    }
+    if (counter == 0) {
+      prevBtn.classList.add("cursor-not-allowed");
+      prevBtn.classList.remove("cursor-pointer");
+    } else {
+      prevBtn.classList.remove("cursor-not-allowed");
+      prevBtn.classList.add("cursor-pointer");
+    }
   });
 }
 updateStatus();
 
-// import html2pdf from 'html2pdf.js';
-// const content = document.getElementById('template');
-// const opt = {
-//   margin: 10,            // margin in mm
-//   filename: 'cv.pdf',
-//   jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-// };
-// downloadButton.addEventListener('click',()=>{
-//         if(!content.innerText.trim()){
-//             alert("le contenu est vide");
-//             return ;
-//         }
-//         downloadButton.textContent = 'generation en cours';
-//         downloadButton.style.background = '#91E61A';
-//         html12pdf.from(content).save().then(()=>{
-//           downloadButton.textContent = 'Download'
-//         });
-//     })
+const content = document.getElementById('template');
+const opt = {
+    margin:       10, // mm
+    filename:     'cv.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2 },
+    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  };
+downloadBtn.addEventListener('click',(e)=>{
+        downloadBtn.textContent = 'generation en cours';
+        downloadBtn.style.background = '#91E61A';
+        html2pdf().set(opt).from(content).save().then(() => {
+      downloadBtn.textContent = 'Download';
+      downloadBtn.style.background = '#91E61A';
+    });
+    })
 
 const addButtonLinks = document.getElementById("addButtonLinks");
 const links = document.getElementById("links");
